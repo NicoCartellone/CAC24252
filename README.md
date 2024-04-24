@@ -7,5 +7,5 @@ INTEGRANTES:
 
 * Maria Aredes
 * Nicolas Cartellone
-* Mauricio Cox
+* Mauricio Cox | coxmau77@gmail.com
 * Gian Franco Montero
