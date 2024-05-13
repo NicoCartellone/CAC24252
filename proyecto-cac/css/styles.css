@@ -316,6 +316,54 @@ option {
 
 /*****************  Tiendas  *******************/
 
+.title-map-container {
+  text-align: center;
+  margin: 50px;
+
+}
+
+.map-container {
+  position: relative;
+  overflow: hidden;
+  padding-top: 20%; /* Aspect ratio 16:9 (divide el alto entre el ancho y lo multiplica por 100 para obtener el porcentaje) */
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.info-store-container{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.info-horarios{
+  margin-top: 20px;
+}
+
+
+.facebook-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.instagram-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
 /************  Acerca de Nosotros  ************/
 
 /*****************  Footer  *******************/
@@ -484,4 +532,36 @@ footer {
   width: 95%;
   margin-bottom: 40px;
 }
+}
+
+@media only screen and (max-width: 768px) {
+  .map-container {
+     padding-top: 75%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+
+  /*****************  Tiendas  *******************/
+  .map-container {
+     padding-top: 100%;
+  }
+
+  .info-store-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-media{
+    display: flex;
+    justify-content: center;
+  }
+
+  .social-media-container{
+    margin-top: 10px;
+  }
+
+  /*****************  Tiendas  *******************/
+
 }
