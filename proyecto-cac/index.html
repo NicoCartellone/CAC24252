@@ -9,6 +9,7 @@
   <link rel="icon" href="img/basket-regular-24.png" />
   <script src="https://kit.fontawesome.com/c9b87a4bee.js" crossorigin="anonymous"></script>
   <script src="./js/script.js" async defer></script>
+  <script src="./js/formulario.js" async defer></script>
   <title>E-commerce</title>
 </head>
 
@@ -45,8 +46,7 @@
     <div class="slider-contenedor">
       <section class="contenido-slider">
         <div>
-          <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ipsa ipsam aliquam natus quidem
-            sed. Quos cupiditate id delectus est.</h2>
+          <h2>HOT SALE! Del 13 al 15 de mayo.</h2>
           <a href="#">Contact us</a>
         </div>
         <img src="animacion.svg" alt="">
@@ -54,8 +54,7 @@
       </section>
       <section class="contenido-slider">
         <div>
-          <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ipsa ipsam aliquam natus quidem
-            sed. Quos cupiditate id delectus est.</h2>
+          <h2>¡Ofertas exclusivas solo por tiempo limitado!.</h2>
           <a href="#">Contact us</a>
         </div>
         <img src="animacion2.svg" alt="">
@@ -63,8 +62,7 @@
       </section>
       <section class="contenido-slider">
         <div>
-          <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ipsa ipsam aliquam natus quidem
-            sed. Quos cupiditate id delectus est.</h2>
+          <h2>Suscríbete y recibe un descuento adicional del 15% en tu primera compra.</h2>
           <a href="#">Contact us</a>
         </div>
         <img src="animacion3.svg" alt="">
@@ -72,8 +70,7 @@
       </section>
       <section class="contenido-slider">
         <div>
-          <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ipsa ipsam aliquam natus quidem
-            sed. Quos cupiditate id delectus est.</h2>
+          <h2>Estamos aquí para ayudarte.</h2>
           <a href="#">Contact us</a>
         </div>
         <img src="animacion.svg" alt="">
@@ -81,7 +78,13 @@
       </section>
     </div>
   </div>
-
+  
+  <div><!--15.05-->
+    <hr>
+    <p>Pedido mínimo $6.000 || Envíos GRATIS en compras superiores a $10.000</p>
+    <hr>
+  </div> 
+  
   <!--articulos-->
   <!-- ////////////////   Gian   //////////////////-->
 
@@ -173,7 +176,7 @@
           <input class="formItem email" type="email" placeholder="Dirección de email">
 
           <div class="checkBox">
-            <input type="checkbox" id="politicasDePrivacidad">
+            <input class="inputCheckBox" type="checkbox" id="politicasDePrivacidad">
             <label class="texto" for="politicasDePrivacidad">Acepto la <a href="">Política de Privacidad</a>.
               (Puedes darte de baja en cualquier momento). </label>
           </div>
@@ -190,6 +193,7 @@
           </select>
         </div>
 
+        <div class="error"></div>
         <div class="contenedorDelSubmit">
           <input class="botonSubmit" type="submit" value="Suscribirme">
         </div>
@@ -208,7 +212,7 @@
 
   <footer id="Footer">
     <div class="partFooter">
-      <img src="img/logo-jordan-alexander.png" alt="">
+      <img src="img/logo.png" alt="">
     </div>
 
     <div class="partFooter">
@@ -223,13 +227,17 @@
       <a href="#">+54 9 11 2251-7878</a>
       <a href="#">hola@tienda.com.ar</a>
     </div>
-
+<!--
     <div class="partFooter">
       <h4>Redes sociales</h4>
       <div class="social-media">
         <i class="fab fa-facebook-f"></i>
         <i class="fab fa-instagram"></i>
       </div>
+    -->
+      <div class="down">
+        <p>©Copyright 2024 - Todos los derechos reservados</p>
+    </div>
     </div>
   </footer>
 
