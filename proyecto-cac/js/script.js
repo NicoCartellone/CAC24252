@@ -36,3 +36,44 @@ function slides(){
         },1500)
     }
 }
+//articulos
+
+/*Evento*/
+
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('productos.json')
+      .then(response => response.json())
+      .then(data => {
+        const contenedorProductos = document.getElementById('contenedor-productos');
+        data.forEach(producto => {
+          const productoHTML = `
+          <div class="articulo" data-aos="zoom-in-right">
+          <img src="${producto.imagen}" alt="${producto.nombre}" class="img-producto">
+          <div id="contenedor-productos"></div>
+          <i class="fas fa-chart-bar"></i>
+          <p>Descripción</p>
+          <h2>${producto.nombre}</h2>
+          <h3>Precio</h3>
+          <p>${producto.precio} €</p>
+          <div class="boton-modal" onclick= "mostrarProducto('${producto.descripcion}')">
+            Read more
+        </div>
+          `;
+          contenedorProductos.innerHTML += productoHTML;
+        });
+      })
+      .catch(error => console.error('Error al obtener los datos:', error));
+  });
+
+  function mostrarProducto(descripcion) {
+    document.getElementById("descripcionProducto").innerHTML = descripcion;
+    document.getElementById("modal").style.display = "flex";
+
+}
+
+    document.getElementById("btn-cerrar").onclick = function(){
+       document.getElementById("modal").style.display = "none";
+
+    }
+
+  
