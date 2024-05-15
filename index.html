@@ -9,6 +9,8 @@
   <link rel="icon" href="img/basket-regular-24.png" />
   <script src="https://kit.fontawesome.com/c9b87a4bee.js" crossorigin="anonymous"></script>
   <script src="./js/script.js" async defer></script>
+  <script src="./js/formulario.js" async defer></script>
+
   <title>E-commerce</title>
 </head>
 
@@ -17,13 +19,15 @@
   <header>
     <div class="imgLogo">
       <a href="./proyectocac.html" class="logo">
-        <img src="./img/logo.png" alt="logo" width="150" height="100">
+        <img src="./img/logo.png" alt="logo" width="150" height="90">
       </a>
 
     </div>
-    <h1 class="logo">
+
+    <!--<h1 class="logo">
       <a href="https://proyectocac/" class="fuente-acento">Tienda</a>
-    </h1>
+    </h1>-->
+
     <label for="check" class="checkbtn">
       <i class="fa-solid fa-bars"></i>
     </label>
@@ -31,8 +35,8 @@
 
       <ul class="menu">
         <li><a class="navli" href="index.html">Inicio</a></li>
-        <li><a class="navli" href="#">Tiendas</a></li>
-        <li><a class="navli" href="#">Catalogo</a></li>
+        <li><a class="navli" href="#Tiendas">Tiendas</a></li>
+        <li><a class="navli" href="#contenedor-productos">Catalogo</a></li>
         <li><a class="navli" href="#Footer">Contacto</a></li>
         <li><a class="navli" href="#Footer">Sobre Nosotros</a></li>
       </ul>
@@ -45,8 +49,7 @@
     <div class="slider-contenedor">
       <section class="contenido-slider">
         <div>
-          <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ipsa ipsam aliquam natus quidem
-            sed. Quos cupiditate id delectus est.</h2>
+          <h2>HOT SALE! Del 13 al 15 de mayo.</h2>
           <a href="#">Contact us</a>
         </div>
         <img src="animacion.svg" alt="">
@@ -54,8 +57,7 @@
       </section>
       <section class="contenido-slider">
         <div>
-          <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ipsa ipsam aliquam natus quidem
-            sed. Quos cupiditate id delectus est.</h2>
+          <h2>¡Ofertas exclusivas solo por tiempo limitado!.</h2>
           <a href="#">Contact us</a>
         </div>
         <img src="animacion2.svg" alt="">
@@ -63,8 +65,7 @@
       </section>
       <section class="contenido-slider">
         <div>
-          <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ipsa ipsam aliquam natus quidem
-            sed. Quos cupiditate id delectus est.</h2>
+          <h2>Suscríbete y recibe un descuento adicional del 15% en tu primera compra.</h2>
           <a href="#">Contact us</a>
         </div>
         <img src="animacion3.svg" alt="">
@@ -72,8 +73,7 @@
       </section>
       <section class="contenido-slider">
         <div>
-          <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ipsa ipsam aliquam natus quidem
-            sed. Quos cupiditate id delectus est.</h2>
+          <h2>Estamos aquí para ayudarte.</h2>
           <a href="#">Contact us</a>
         </div>
         <img src="animacion.svg" alt="">
@@ -82,54 +82,35 @@
     </div>
   </div>
 
-  <!--articulos-->
-  <!-- ////////////////   Gian   //////////////////-->
+  <div><!--15.05-->
+    <hr>
+    <p>Pedido mínimo $6.000 || Envíos GRATIS en compras superiores a $10.000</p>
+    <hr>
+  </div> 
 
-  <div class="contenedor-articulo">
-    <div class="articulo" data-aos="zoom-in-right">
-      <i class="fas fa-chart-bar"></i>
-      <p>Descripción</p>
-      <h3>Precio</h3>
-      <a href="#">Read more ---></a>
-    </div>
-    <div class="articulo" data-aos="zoom-in-right">
-      <i class="fas fa-chart-bar"></i>
-      <p>Descripción</p>
-      <h3>Precio</h3>
-      <a href="#">Read more ---></a>
-    </div>
-    <div class="articulo" data-aos="zoom-in-right">
-      <i class="fas fa-chart-bar"></i>
-      <p>Descripción</p>
-      <h3>Precio</h3>
-      <a href="#">Read more ---></a>
-    </div>
-    <div class="articulo" data-aos="zoom-in-right">
-      <i class="fas fa-chart-bar"></i>
-      <p>Descripción</p>
-      <h3>Precio</h3>
-      <a href="#">Read more ---></a>
-    </div>
-    <div class="articulo" data-aos="zoom-in-right">
-      <i class="fas fa-chart-bar"></i>
-      <p>Descripción</p>
-      <h3>Precio</h3>
-      <a href="#">Read more ---></a>
-    </div>
-    <div class="articulo" data-aos="zoom-in-right">
-      <i class="fas fa-chart-bar"></i>
-      <p>Descripción</p>
-      <h3>Precio</h3>
-      <a href="#">Read more ---></a>
-    </div>
+  <!--articulos-->
+  <section id="contenedor-articulos">
+  <!-- ////////////////   Gian   //////////////////-->
+  <div class="contenedor-articulo" id="contenedor-productos">
   </div>
+  <!--Ventana Modal-->
+  <input type="checkbox" id="btn-modal">
+  <div class="container-modal" id="modal">
+      <div class="content-modal" >
+          <h2>¡Bienvenido!</h2>
+          <p id="descripcionProducto"></p>
+          <div id="btn-cerrar" >
+            Cerrar
+          </div>
+      </div>
+<!--Fin de Ventana Modal-->
   </div>
-  </section>
+</section>
 
   <!--locales-->
-  <section>
+  <section id="contenedor-tiendas">
     <!-- ////////////////   Nicolas   //////////////////-->
-    <div class="title-map-container">
+    <div class="title-map-container" id="Tiendas">
       <h1>Encontranos en</h1>
     </div>
     <div class="map-container">
@@ -155,7 +136,7 @@
       </div>
   </section>
 
-  <!--formulario-->
+ <!--formulario-->
 
   <section class="section contacto">
     <div class="contenedorFormulario">
@@ -172,8 +153,8 @@
           <input class="formItem apellido" type="text" placeholder="Apellido">
           <input class="formItem email" type="email" placeholder="Dirección de email">
 
-          <div class="checkBox">
-            <input type="checkbox" id="politicasDePrivacidad">
+          <div class="checkBox"><!--15.05-->
+            <input class="inputCheckBox" type="checkbox" id="politicasDePrivacidad">
             <label class="texto" for="politicasDePrivacidad">Acepto la <a href="">Política de Privacidad</a>.
               (Puedes darte de baja en cualquier momento). </label>
           </div>
@@ -190,6 +171,7 @@
           </select>
         </div>
 
+        <div class="error"></div>
         <div class="contenedorDelSubmit">
           <input class="botonSubmit" type="submit" value="Suscribirme">
         </div>
@@ -208,13 +190,11 @@
 
   <footer id="Footer">
     <div class="partFooter">
-      <img src="img/logo-jordan-alexander.png" alt="">
+      <img src="img/logo.png" alt="">
     </div>
 
     <div class="partFooter">
       <h4>Sobre Nosotros</h4>
-      <a href="#"> </a>
-      <a href="#"> </a>
       <a href="#"> </a>
     </div>
 
@@ -224,13 +204,6 @@
       <a href="#">hola@tienda.com.ar</a>
     </div>
 
-    <div class="partFooter">
-      <h4>Redes sociales</h4>
-      <div class="social-media">
-        <i class="fab fa-facebook-f"></i>
-        <i class="fab fa-instagram"></i>
-      </div>
-    </div>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

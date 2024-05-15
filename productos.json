@@ -1,0 +1,44 @@
+[
+    {
+      "id": "1",
+      "nombre": "Iphone 15 Pro Max",
+      "precio": 600.99,
+      "descripcion": "El iPhone 15 Pro es el primer iPhone diseñado con titanio de calidad aeroespacial, la misma aleación que se usa en las naves espaciales enviadas a Marte. El titanio es uno de los metales con mejor relación dureza/peso, por lo que este es el iPhone Pro más ligero que hemos diseñado hasta ahora. Sentirás la diferencia en cuanto lo saques de la caja.",
+      "imagen": "img2/Iphone13.webp"
+    },
+    {
+      "id": "2",
+      "nombre": "Iphone 14 Plus",
+      "precio": 450.50,
+      "descripcion": "Frente de Ceramic Shield Diseño de aluminio con parte posterior de vidrio Pantalla Super Retina XDR Pantalla OLED de 6.7 pulgadas (diagonal) sin marco Resolución de 2778 x 1284 pixeles a 458 ppi",
+      "imagen": "img2/Iphone13.webp"
+    },
+    {
+      "id": "3",
+      "nombre": "Iphone 13 Pro Max",
+      "precio": 300.75,
+      "descripcion": "Pantalla Super Retina XDR Pantalla OLED de 6.1 pulgadas (diagonal) sin marco Resolución de 2532 x 1170 pixeles a 460 ppi Sistema de dos cámaras de 12 MP: gran angular y ultra gran angular Modo Cine (1080p a 30 cps) Sistema de dos cámaras Gran angular de 12 MP: 26 mm, apertura de ƒ/1.5, estabilización óptica de imagen por desplazamiento de sensor, 100% Focus Pixels Ultra gran angular de 12 MP: 13 mm, apertura de ƒ/2.4 y ángulo de visión de 120° Zoom óptico de 2x para alejar; zoom digital de hasta 5x",
+      "imagen": "img2/Iphone13.webp"
+    },
+    {
+      "id": "4",
+      "nombre": "Iphone 12",
+      "precio": 270.99,
+      "descripcion": "Cámara de 12 MP. Apertura de ƒ/2.2. Modo Retrato con bokeh avanzado y Control de Profundidad. Iluminación de Retrato con seis efectos (Luz Natural, Luz de Estudio Fotográfico, Luz al Contorno, Reflector, Reflector B y N, Clave Alta en B y N) Animoji y Memoji. Modo Noche. Deep Fusion.",
+      "imagen": "img2/Iphone13.webp"
+    },
+    {
+      "id": "5",
+      "nombre": "Iphone 11",
+      "precio": 200.50,
+      "descripcion": "Liquid Retina HD. Pantalla LCD Multi-Touch de 6,1 pulgadas (en diagonal) con tecnología IPS. Resolución de 1.792 por 828 píxeles a 326 p/p. Contraste de 1.400:1 (típico) Pantalla True Tone. Gama cromática amplia (P3) Respuesta háptica. Brillo máximo de 625 nits (típico)",
+      "imagen": "img2/Iphone13.webp"
+    },
+    {
+      "id": "6",
+      "nombre": "Iphone 10",
+      "precio": 180.75,
+      "descripcion": "Pantalla Super Retina HD. Pantalla OLED Multi-Touch de 5.8 pulgadas (diagonal) sin marco. Pantalla HDR. Resolución de 2436 x 1125 pixeles a 458 ppi. Relación de contraste 1,000,000:1 (normal) Pantalla True Tone. Pantalla con una amplia gama de colores (P3) 3D Touch.",
+      "imagen": "img2/Iphone13.webp"
+    }
+  ]
