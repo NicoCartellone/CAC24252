@@ -67,10 +67,16 @@ nav ul.menu {
   float: right;
 }
 
+
+header img {
+  width: 100%;
+}
+
+
 nav ul.menu li {
   display: inline-block;
   line-height: 80px;
-  margin: 0 5px;
+  margin: 0 25px;
 }
 
 nav ul.menu li a {
@@ -78,6 +84,10 @@ nav ul.menu li a {
   font-size: 15px;
   text-transform: uppercase;
   padding: 7px 7px;
+}
+
+nav ul.menu li a:hover {
+  color: #160b63;
 }
 
 /******************  Menu  ********************/
@@ -98,7 +108,7 @@ nav ul.menu li a {
 }
 
 .slider-contenedor{
-  margin-top: 125px;
+  margin-top: 118px;
     width: 100%;
     display: flex;
 }
@@ -162,11 +172,12 @@ nav ul.menu li a {
 }
 
 .articulo {
+  position: relative;
   width: 29%;
   background: #fff;
   margin-bottom: 30px;
   border-radius: 10px;
-  padding: 200px 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
   transition: 0.5s;
 }
 
@@ -387,7 +398,7 @@ footer {
   color: #eee;
   font-size: 20px;
   font-weight: 400;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 }
 
 .partFooter a {
@@ -405,7 +416,7 @@ footer {
 }
 
 .partFooter img {
-  width: 70%;
+  width: 50%;
 }
 
 .social-media i {
@@ -433,9 +444,15 @@ footer {
 /***************  Break Points  ***************/
 /*------------------CORREGIR------------------*/
 
-/* Estilos para pantallas más pequeñas (hasta 680px) */
-@media screen and (min-width: 150px) and (max-width: 680px) {
- 
+/* Estilos para pantallas más medianas (hasta 1200px) */
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+
+
+
+}
+
+/* Estilos para pantallas más pequeñas (hasta 768px) */
+@media screen and (min-width: 150px) and (max-width: 768px) {
 
   /*Navbar*/
   .checkbtn {
@@ -565,3 +582,89 @@ footer {
   /*****************  Tiendas  *******************/
 
 }
+
+.img-producto{
+  width: 100%;
+  height: auto;
+}
+
+
+/*:::Boton-Modal:::*/
+.boton-modal{
+  padding: 10px 15px;
+  width: 110px;
+  background-color: #5488a3;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+.boton-modal:hover{
+  background-color: #185E83;
+}
+/*:::Fin Boton-Modal:::*/
+
+/*:::Ventana Modal:::*/
+#btn-modal{
+  display: none;
+}
+.container-modal{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0; left: 0;
+  background-color: rgba(144, 148, 150, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+#btn-modal:checked ~ .container-modal{
+  display: flex;
+}
+.content-modal{
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.content-modal h2{
+  margin-bottom: 15px;
+}
+.content-modal p{
+  padding: 15px 0px;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+}
+.content-modal #btn-cerrar{
+  width: 18%;
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+.content-modal #btn-cerrar{
+  padding: 7px 10px;
+  background-color: #5488a3;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+.content-modal #btn-cerrar:hover{
+  background-color:#185E83;
+}
+.cerrar-modal{
+  width:100%;
+  height: 100vh;
+  position: absolute;
+  top:0; left: 0;
+  z-index: -1;
+}
+@media screen and (max-width:800px) {
+  .content-modal{
+      width: 90%;
+  }
+}
+/*:::Fin Ventana Modal:::*/
+
