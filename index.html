@@ -7,9 +7,11 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/styles.css" />
   <link rel="icon" href="img/basket-regular-24.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <script src="https://kit.fontawesome.com/c9b87a4bee.js" crossorigin="anonymous"></script>
-  <script src="./js/script.js" async defer></script>
-  <script src="./js/formulario.js" async defer></script>
+  <script src="./js/script.js" defer></script>
+  <script src="./js/formulario.js" defer></script>
 
   <title>E-commerce</title>
 </head>
@@ -17,42 +19,38 @@
 <body>
 
   <header>
-    <div class="imgLogo">
-      <a href="./proyectocac.html" class="logo">
-        <img src="./img/logo.png" alt="logo" width="150" height="90">
-      </a>
-
+    <div class="banner">
+      <p id="scrolling-text">Pedido mínimo $10.000 || Envíos GRATIS en compras superiores a $40.000</p>
     </div>
-
-    <!--<h1 class="logo">
-      <a href="https://proyectocac/" class="fuente-acento">Tienda</a>
-    </h1>-->
-
-    <label for="check" class="checkbtn">
-      <i class="fa-solid fa-bars"></i>
-    </label>
+    
     <nav class="navbar">
-
-      <ul class="menu">
-        <li><a class="navli" href="index.html">Inicio</a></li>
-        <li><a class="navli" href="#Tiendas">Tiendas</a></li>
-        <li><a class="navli" href="#contenedor-productos">Catalogo</a></li>
-        <li><a class="navli" href="#Footer">Contacto</a></li>
-        <li><a class="navli" href="#Footer">Sobre Nosotros</a></li>
-      </ul>
+      <div class="logo">
+        <img src="img/logo.png" alt="Logo">
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a href="#slider" class="nav-link">INICIO</a>
+        <a href="#contenedor-articulos" class="nav-link">CATÁLOGO</a>
+        <a href="#conocenos" class="nav-link">CONÓCENOS</a>
+        <a href="#visitanos" class="nav-link">VISÍTANOS</a>
+        <a href="#contacto" class="nav-link">CONTACTO</a>
+      </div>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </div>
     </nav>
   </header>
+  
 
   <!--slider-->
 
-  <div class="contenedor">
+  <div id="slider" class="contenedor">
     <div class="slider-contenedor">
       <section class="contenido-slider">
         <div>
           <h2>HOT SALE! Del 13 al 15 de mayo.</h2>
           <a href="#">Contact us</a>
         </div>
-        <img src="animacion.svg" alt="">
+        
 
       </section>
       <section class="contenido-slider">
@@ -60,7 +58,7 @@
           <h2>¡Ofertas exclusivas solo por tiempo limitado!.</h2>
           <a href="#">Contact us</a>
         </div>
-        <img src="animacion2.svg" alt="">
+        
 
       </section>
       <section class="contenido-slider">
@@ -68,7 +66,7 @@
           <h2>Suscríbete y recibe un descuento adicional del 15% en tu primera compra.</h2>
           <a href="#">Contact us</a>
         </div>
-        <img src="animacion3.svg" alt="">
+        
 
       </section>
       <section class="contenido-slider">
@@ -76,42 +74,54 @@
           <h2>Estamos aquí para ayudarte.</h2>
           <a href="#">Contact us</a>
         </div>
-        <img src="animacion.svg" alt="">
+        
 
       </section>
     </div>
   </div>
 
-  <div><!--15.05-->
-    <hr>
-    <p>Pedido mínimo $6.000 || Envíos GRATIS en compras superiores a $10.000</p>
-    <hr>
-  </div> 
-
   <!--articulos-->
-  <section id="contenedor-articulos">
-  <!-- ////////////////   Gian   //////////////////-->
-  <div class="contenedor-articulo" id="contenedor-productos">
-  </div>
-  <!--Ventana Modal-->
-  <input type="checkbox" id="btn-modal">
-  <div class="container-modal" id="modal">
-      <div class="content-modal" >
-          <h2>¡Bienvenido!</h2>
-          <p id="descripcionProducto"></p>
-          <div id="btn-cerrar" >
-            Cerrar
-          </div>
+  <section id="contenedor-articulos" class="container p-5">
+    <h1 class="text-center">Catálogo</h1>
+    <div class="contenedor-articulo" id="contenedor-productos">
+    </div>
+    <!--Ventana Modal-->
+    <input type="checkbox" id="btn-modal">
+    <div class="container-modal" id="modal">
+      <div class="content-modal">
+        <h2 id="titulo-producto"></h2>
+        <p id="descripcionProducto"></p>
+        <div id="btn-cerrar">
+          Cerrar
+        </div>
       </div>
-<!--Fin de Ventana Modal-->
-  </div>
-</section>
+      <!--Fin de Ventana Modal-->
+    </div>
+  </section>
 
-  <!--locales-->
+  <!--Conocenos-->
+  <section id="conocenos" class="sectionConocenos">
+    <div>
+      <h1>Conócenos</h1><br>
+      <p>En Online Shopping, nos enorgullece ofrecerte nuestro servicio en linea donde encontrarás productos de alta
+        calidad a precios accesibles.
+      </p>
+      <p>Soñamos y trabajamos por construir tu mejor experiencia de compra cuando quieras y donde quieras.
+      </p>
+      <p>Nos esforzamos por brindarte la mejor atención al cliente y garantizar tu satisfacción en cada compra que
+        realices con nosotros!.
+      </p>
+      <p>Gracias por elegirnos esperamos que disfrutes de tu experiencia de compra con nosotros y que nos visites
+        nuevamente pronto.
+      </p>
+      <!-- ////////////////   Emilse   //////////////////-->
+    </div>
+  </section>
+
+  <!--visitanos-->
   <section id="contenedor-tiendas">
-    <!-- ////////////////   Nicolas   //////////////////-->
-    <div class="title-map-container" id="Tiendas">
-      <h1>Encontranos en</h1>
+    <div class="title-map-container" id="visitanos">
+      <h1>Visítanos</h1>
     </div>
     <div class="map-container">
       <iframe
@@ -134,11 +144,12 @@
           <i class="fab fa-instagram"></i>
         </div>
       </div>
+    </div>
   </section>
 
- <!--formulario-->
+  <!--formulario-->
 
-  <section class="section contacto">
+  <section id="contacto" class="section contacto">
     <div class="contenedorFormulario">
       <div class="contenedorContacto">
         <br>
@@ -153,12 +164,17 @@
           <input class="formItem apellido" type="text" placeholder="Apellido">
           <input class="formItem email" type="email" placeholder="Dirección de email">
 
-          <div class="checkBox"><!--15.05-->
+          <div class="contenedorArchivo">
+            <p class="textoDelArchivo">Sube aquí una imagen de perfil para crear tu cuenta</p>
+            <input class="inputArchivo" type="file" name="image" id="imagenPerfil">
+          </div>       
+        </div>
+
+          <div class="checkBox">
             <input class="inputCheckBox" type="checkbox" id="politicasDePrivacidad">
             <label class="texto" for="politicasDePrivacidad">Acepto la <a href="">Política de Privacidad</a>.
               (Puedes darte de baja en cualquier momento). </label>
           </div>
-        </div>
 
         <div class="contenedorDelSelect">
           <p class="textopreguntaDelSelect">¿Como te enteraste de nuestra pagina?</p>
@@ -180,64 +196,49 @@
     </div>
   </section>
 
-
-  <!--Sobre Nosotros-->
-  <section class="sectionNosotros">
-    <div>
-      <h2>Sobre Nosotros</h2><br>
-      <p>En Online Shopping, nos enorgullece ofrecerte nuestro servicio en linea donde encontrarás productos de alta calidad a precios accesibles. 
-      </p>
-      <p>Soñamos y trabajamos por construir tu mejor experiencia de compra cuando quieras y donde quieras.
-      </p>
-      <p>Nos esforzamos por brindarte la mejor atención al cliente y garantizar tu satisfacción en cada compra que realices con nosotros!.
-      </p>
-      <p>Gracias por elegirnos esperamos que disfrutes de tu experiencia de compra con nosotros y que nos visites nuevamente pronto.
-      </p>
-    <!-- ////////////////   Emilse   //////////////////-->
-  </div>
-  </section>
-
-
-  <footer id="Footer">
+  <footer id="footer">
     <div class="partFooter">
-      <a href=""></a>
-      <img src="img/logo.png" alt="Logo de la Tienda">
-    </a>
+      <a href="#slider">
+        <img src="img/logo.png" alt="Logo de la Tienda">
+      </a>
     </div>
 
     <div class="partFooter">
       <h4>Online Shopping</h4><br>
-      <a href="#sectionNosotros">¿Quienes somos?</a>
-      <a href="#Tiendas">Zonas de envíos</a>
+      <a href="#conocenos">¿Quienes somos?</a>
+      <a href="#visitanos">Zonas de envíos</a>
       <a href="#">Ayudanos a mejorar</a>
     </div>
 
     <div class="partFooter">
       <h4>Contáctanos</h4><br>
       <table>
-      <tr>
-        <td class="contact-info-table">
+        <tr class="footer-social">
+          <td class="contact-info-table">
             <i class="fa mr-2 fa-whatsapp fa-2x fa-fw"></i>
-        </td>
-        <td class="contact-info-table">
-          <a class="text-white" style="margin-left: 10px;"  href="https://wa.me/5491122517878">+54 9 11 2251-7878</a>
-        </td>
-      </tr>
-      <tr>
-        <td class="contact-info-table">
-          <i class="fas mr-2 fa-2x fa-fw fa-envelope"></i>
-        </td>
-        <td class="contact-info-table">
-          <a class="text-white" style="margin-left: 10px;" href="#">hola@tienda.com.ar</a>
-        </td>
-      </tr>
-    </table>
+          </td>
+          <td class="contact-info-table">
+            <a class="text-white" style="margin-left: 10px;" href="https://wa.me/5491122517878">+54 9 11 2251-7878</a>
+          </td>
+        </tr>
+        <tr class="footer-social">
+          <td class="contact-info-table">
+            <i class="fas mr-2 fa-2x fa-fw fa-envelope"></i>
+          </td>
+          <td class="contact-info-table">
+            <a class="text-white" style="margin-left: 10px;" href="#">hola@tienda.com.ar</a>
+          </td>
+        </tr>
+      </table>
     </div>
 
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://kit.fontawesome.com/c15b744a04.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

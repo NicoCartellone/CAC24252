@@ -4,176 +4,161 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style-type: none;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: "Trajan Pro Bold", sans-serif;
   background-color: #eeeeee;
 }
- 
-/************  Estilos Generales  *************/
- 
-.fuente-clara {
-  color: #eeeeee;
+
+:root {
+  --main-color: rgba(49, 109, 3, 0.85);
+  --main-color-acento: #b59a61;
+  --background-color-formulario: rgb(205, 191, 174);
+  --background-color-navlinks: #2c3e50
+
 }
 
-.fuente-oscura {
-  color: #22211f;
-}
-
-.fuente-acento {
-  color: #b59a61;
-}
-
-nav ul li {
-  font-size: 14px;
-  line-height: 30px;
-  text-transform: uppercase;
-}
-
-nav ul li a {
-  color: #eeeeee;
-}
 
 /****************  Encabezado  ****************/
- 
-header {
-  background-color: rgba(49, 109, 3, 0.851);
-  width: 100%;
-}
 
-.logo {
-  display: inline-block;
-  font-size: 35px;
-  line-height: 80px;
-  padding: 0 50px;
-  font-weight: bold;
-  color:#eee
-}
-
-header {
-  position: fixed;
-  display: flex;
-  z-index: 1000;
+header{
+  position: sticky;
   top: 0;
+  z-index: 1000;
 }
 
-header nav {
-  height: 80px;
-  float: right;
+.banner {
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #000;
 }
 
-nav ul.menu {
-  float: right;
+#scrolling-text {
+  color: white;
+  animation: scroll-left 25s linear infinite;
 }
 
-
-header img {
-  width: 100%;
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
+.navbar {
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--main-color);
+  color: white;
 
-nav ul.menu li {
-  display: inline-block;
-  line-height: 100px;  /*15.05* era 80px */
-  margin: 0 50px;     /*15.05* era 10px */
 }
 
-nav ul.menu li a {
-  color: #eee;
-  font-size: 15px;
-  text-transform: uppercase;
-  padding: 7px 7px;
+.logo img {
+  width: 100px;
+  margin-left: 50px;
 }
 
-nav ul.menu li a:hover {
-  color: #160b63;
+.nav-links {
+  display: flex;
+  gap: 20px;
+  margin-right: 50px;
 }
 
-/******************  Menu  ********************/
-.checkbtn {
-  font-size: 25px;
-  color: #eee;
-  float: right;
-  line-height: 80px;
-  margin-right: 40px;
-  cursor: pointer;
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.menu-icon {
   display: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 50px;
+}
+
+.nav-links a:hover {
+  color: var(--main-color-acento);
 }
 
 /*****************  Slider  *******************/
+
 .contenedor{
-    width: 100%;
-    overflow: hidden;
+  width: 100%;
+  overflow: hidden;
 }
 
 .slider-contenedor{
-  margin-top: 118px;
-    width: 100%;
-    display: flex;
+  width: 100%;
+  display: flex;
 }
 
 .contenido-slider{
-    width: 100%;
-    height: 600px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-shrink: 0;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .contenido-slider:nth-child(2){
-    background: #ff8400;
-    color: #fff;
+  background: #ff8400;
+  color: #fff;
 }
 
 .contenido-slider:nth-child(3){
-    background: #129999;
+  background: #129999;
 }
 
 .contenido-slider > img{
-    width: 400px;
+  width: 400px;
 }
 
 .contenido-slider > div{
-    width: 40%;
+  width: 40%;
 }
 
 .contenido-slider h2{
-    font-weight: 300;
-    text-align: justify;
-    line-height: 30px;
+  font-weight: 300;
+  text-align: justify;
+  line-height: 30px;
 }
 
 .contenido-slider a{
-    color: #fff;
-    background: #332863;
-    width: 100px;
-    display: block;
-    padding: 15px 0;
-    text-align: center;
-    border-radius: 3px;
-    margin-top: 20px;
-    text-decoration: none;
+  color: #fff;
+  background: #332863;
+  width: 100px;
+  display: block;
+  padding: 15px 0;
+  text-align: center;
+  border-radius: 3px;
+  margin-top: 20px;
+  text-decoration: none;
 }
 
 .contenido-slider:nth-child(2) a{
-    background: #fff;
-    color: #332863;
-    
+  background: #fff;
+  color: #332863;
+  
 }
-/****************  Artículo  ******************/
+/****************  Artículos  ******************/
 
 .contenedor-articulo {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 100px;
   justify-content: space-around;
 }
 
 .articulo {
   position: relative;
-  width: 29%;
   background: #fff;
   margin-bottom: 30px;
   border-radius: 10px;
@@ -182,49 +167,77 @@ nav ul.menu li a:hover {
 }
 
 .articulo:hover {
-  box-shadow: 0 4px 10px rgba(17, 29, 48, .26);
+  box-shadow: 0 4px 10px rgba(17, 29, 48, 0.26);
 }
 
-.articulo>i {
-  font-size: 30px;
+.img-producto {
+  width: 100%;
+  height: auto;
+}
+
+/*************  Articulo modal  *******************/
+
+/*:::Ventana Modal:::*/
+#btn-modal {
+  display: none;
+}
+.container-modal {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(144, 148, 150, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+#btn-modal:checked ~ .container-modal {
+  display: flex;
+}
+.content-modal {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.content-modal h2 {
+  margin-bottom: 15px;
+}
+.content-modal p {
+  padding: 15px 0px;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.content-modal #btn-cerrar {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  padding: 10px;
+  background-color: #157347;
   color: #fff;
-  background: #316d03d9;
-  display: inline-block;
-  width: 70px;
-  height: 70px;
-  text-align: center;
-  padding-top: 20px;
-  border-radius: 50%;
-  box-shadow: 0 8px 32px rgba(31, 222, 130, .46);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+.content-modal #btn-cerrar:hover {
+  background-color: #000;
+}
+.cerrar-modal {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
-.articulo>h3 {
-  font-size: 24px;
-  margin-top: 30px;
-}
-
-.articulo>p {
-  font-weight: 100;
-  color: #5D6678;
-  margin-top: 15px;
-  padding-bottom: 20px;
-}
-
-.articulo>a {
-  color: #5D6678;
-  font-weight: 400;
-  text-decoration: none;
-}
-
-.articulo>a:hover {
-  color: #316d03d9;
-  transition: color .5s;
-}
-
-/*************  Formulario  *******************/;
+/*************  Formulario  *******************/
 
 .subTexto {
-  
   font-family: "Trajan Pro Bold", sans-serif;
   color: rgb(14, 13, 13);
   font-size: 30px;
@@ -250,17 +263,18 @@ nav ul.menu li a:hover {
 }
 .formulario {
   margin-top: 30px;
+  margin-bottom: 30px;
   width: 65%;
   align-items: center;
 }
 .contenedorFormulario {
-  background-color: rgb(205, 191, 174);
+  background-color: var(--background-color-formulario);
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
   width: 100%;
-  height: 500px;
+  height: 600px; /*16.05*/
 }
 .formItem {
   border: none;
@@ -272,7 +286,7 @@ nav ul.menu li a:hover {
   font-size: 16px;
 }
 .datos {
-  display: flex; 
+  display: flex;
   flex-direction: column;
   gap: 21.6px;
 }
@@ -280,8 +294,19 @@ nav ul.menu li a:hover {
   padding-bottom: 31.2px;
   font-size: 1.5em;
 }
-
-.contenedorDelSelect { 
+.contenedorArchivo {
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  margin-bottom: 32.4px;
+  width: 100%;
+}
+.inputArchivo {
+  margin: 0 auto;
+  justify-content: center;
+}
+.contenedorDelSelect {
   margin-top: 0px;
   display: flex;
   justify-content: left;
@@ -325,12 +350,11 @@ option {
   height: 43.2px;
 }
 
-/*****************  Tiendas  *******************/
+/*****************  Visitanos  *******************/
 
 .title-map-container {
   text-align: center;
   margin: 50px;
-
 }
 
 .map-container {
@@ -347,58 +371,57 @@ option {
   height: 100%;
 }
 
-.info-store-container{
+.info-store-container {
   display: flex;
   justify-content: space-around;
   margin-top: 50px;
   margin-bottom: 50px;
 }
 
-.info-horarios{
+.info-horarios {
   margin-top: 20px;
 }
 
-
-.facebook-container{
+.facebook-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
-.instagram-container{
+.instagram-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
-/************  Acerca de Nosotros  ************/
-.sectionNosotros{
-  background-color: rgb(205, 191, 174);
+/************  Conocenos  ************/
+.sectionConocenos {
+  background-color: #f8f9fa;
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   align-content: space-between;
 }
-.sectionNosotros div {
-  background-color: #eee;
+.sectionConocenos div {
   margin-top: 20px;
   padding: 2%;
   align-content: center;
   align-items: center;
-  text-align: center;
+  text-align: left;
   margin-bottom: 50px;
+  text-wrap: balance;
+  line-height: 20px;
+  font-size: 20px;
 }
 
 /*****************  Footer  *******************/
 
 footer {
-  background:  rgba(49, 109, 3, 0.85);
-  padding: 30px 0;  /*15.05*/
+  background: var(--main-color);
+  padding: 30px 0; 
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
@@ -407,9 +430,12 @@ footer {
 
 .partFooter {
   width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   color: #eee;
-  /*border: 1px solid #adb6c7;*/
 }
 
 .partFooter h4 {
@@ -421,27 +447,28 @@ footer {
   text-align: center;
 }
 
-.partFooter table { /**15.05**/
-align-items: center;
-margin-left: 110px;
+.partFooter table {
+  /**15.05**/
+  display: flex;
+  justify-content: center;
 }
 
 .partFooter a {
   display: block;
   text-decoration: none;
-  color:#eee;
+  color: #eee;
   font-weight: 300;
-  transition: color .3s ease-in-out;
+  transition: color 0.3s ease-in-out;
   margin-bottom: 10px;
 }
-
 
 .partFooter a:hover {
   color: #b59a61;
 }
 
+
 .partFooter img {
-  width: 40%;  /**15.05**/
+  width: 40%; 
 }
 
 .social-media i {
@@ -456,104 +483,154 @@ margin-left: 110px;
   cursor: pointer;
   margin-top: 20px;
   text-align: center;
-  transition: all ease-in-out .3s;
+  transition: all ease-in-out 0.3s;
   margin-right: 5px;
 }
 
 .social-media i:hover {
   color: #fff;
-  background-color: #b59a61;
-  border-color: #b59a61;
+  background-color: var(--main-color-acento);
+  border-color: var(--main-color-acento);
 }
- 
-/***************  Break Points  ***************/
-/*------------------CORREGIR------------------*/
+
+
+/*--------------------------------Break Points-------------------------------------------------*/
+
+/*Estilos para Pantallas mas grandes*/
+
+
+@media screen and (min-width: 1200px) {
+
+  /* NavBar */  
+  .nav-links {
+    display: flex !important;
+  }
+  /* Formulario */
+  .formulario {
+    width: 60%;
+  }
+  .contenedorFormulario{
+    height: 650px;
+  }
+  .preguntaDelSelect {
+    text-align: left;
+    font-size: 30px;
+  }
+  .subTexto {
+    font-size: 3.5vw;
+  }
+  .botonSubmit {
+    padding: 0.8rem 2rem;
+  }
+  .formItem {
+    height: 4vh;
+  }
+
+  /*Footer*/
+  .partFooter img {
+    width: 40%; 
+  }
+}
+
 
 /* Estilos para pantallas más medianas (hasta 1200px) */
+
 @media screen and (min-width: 769px) and (max-width: 1200px) {
+  
+  /* Formulario */ 
+  .contenedorFormulario{
+    height: 750px;
+  }
+  .formulario {
+    width: 60%;
+  }
+  .contenedorArchivo{
+    align-items: center;
+  }
 
+  /* Conocenos */
+  .sectionConocenos div {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
 
+  /* Footer */
+ 
+  .partFooter {
+    width: 95%;
+    margin-bottom: 40px;
+  }
+  .partFooter img {
+    width: 20%; 
+  }
 
 }
 
 /* Estilos para pantallas más pequeñas (hasta 768px) */
+
 @media screen and (min-width: 150px) and (max-width: 768px) {
 
-  /*Navbar*/
-  .checkbtn {
-    display: block;
-  }
+  /* NavBar */
 
-  .navbar {
-    height: 0vh;
-    position: absolute;
-    top: 80px;
-    left: 0;
+  .nav-links {
+    display: none;
+    flex-direction: column;
     width: 100%;
-    background: #2c3e50;
     text-align: center;
-
-    transition: all 0.5s;
-    overflow: hidden;
+    background-color: var(--background-color-navlinks);
+    position: absolute;
+    top: 110px;
+    left: 0;
+    z-index: 1000;
   }
 
-  .navbar ul.menu {
-    float: none;
+  .nav-links a {
+    padding: 10px;
+    border-top: 1px solid #444;
+  }
+
+  .menu-icon {
     display: block;
-    width: 174px;
-    margin: 0 auto;
-    opacity: 0;
   }
 
-  .navbar ul.menu li a:hover {
-    color: #b59a61;
-  }
+ 
+ /*****************  Slider  *******************/
 
-  /* Active navbar */
-  .navbar.active {
-    height: 100vh;
-  }
-
-  .navbar.active ul.menu {
-    opacity: 1;
-  }
-
-  /* Slider */
-
-  .contenido-slider{
+  .contenido-slider {
     flex-direction: column-reverse;
   }
 
-  .contenido-slider > div{
-     width: 80%;
+  .contenido-slider > div {
+    width: 80%;
   }
-  /* Articulo */
-  
-  .articulo {
-    width: 45%;
-}
- 
-  /* Formulario */
-  .datos {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+
+   /*****************  Tiendas  *******************/
+   .map-container {
+    padding-top: 100%;
+  }
+
+  .info-store-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-media {
+    display: flex;
     justify-content: center;
-    grid-gap: 1em;
   }
-  .email {
-    grid-area: 2/1 / span 1 / span 2;
+
+  .social-media-container {
+    margin-top: 10px;
   }
-  .contenedorDelSelect {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+
+  /*****************  Formulario  *******************/
+  .datos{
+    flex-wrap: wrap;
   }
-  .select {
-    height: 2.5em;
-    grid-area: 1/2 / span 1 / span 1;
-    align-self: center;
-  }
-  .checkBox {
-    grid-area: 3/1 / span 1 / span 2;
+  .contenedorFormulario{
+    height: 850px;
   }
   .preguntaDelSelect {
     text-align: left;
@@ -565,131 +642,43 @@ margin-left: 110px;
   .subTexto {
     font-size: 3.5vw;
   }
-  .botonSubmit {
-    padding: 0.8rem 2rem;
+      
+/*****************  Conocenos  *******************/
+  .sectionConocenos div {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
   }
 
-/* Footer */
-.partFooter {
-  width: 95%;
-  margin-bottom: 40px;
-}
-}
-
-@media only screen and (max-width: 768px) {
-  .map-container {
-     padding-top: 75%;
+  /*****************  Footer  *******************/
+  .partFooter {
+    width: 95%;
+    margin-bottom: 40px;
   }
-}
-
-@media only screen and (max-width: 480px) {
-
-  /*****************  Tiendas  *******************/
-  .map-container {
-     padding-top: 100%;
+  .partFooter img {
+    width: 20%; 
   }
-
-  .info-store-container{
+  
+  .footer-social{
     display: flex;
     flex-direction: column;
-    align-items: center;
-  }
-
-  .social-media{
-    display: flex;
     justify-content: center;
+    width: 100%;
+  
   }
-
-  .social-media-container{
-    margin-top: 10px;
-  }
-
-  /*****************  Tiendas  *******************/
-
 }
 
-.img-producto{
-  width: 100%;
-  height: auto;
-}
-
-
-/*:::Boton-Modal:::*/
-.boton-modal{
-  padding: 10px 15px;
-  width: 110px;
-  background-color: #5488a3;
-  color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 300ms ease;
-}
-.boton-modal:hover{
-  background-color: #185E83;
-}
-/*:::Fin Boton-Modal:::*/
-
-/*:::Ventana Modal:::*/
-#btn-modal{
-  display: none;
-}
-.container-modal{
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0; left: 0;
-  background-color: rgba(144, 148, 150, 0.8);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-}
-#btn-modal:checked ~ .container-modal{
-  display: flex;
-}
-.content-modal{
-  width: 100%;
-  max-width: 400px;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 4px;
-}
-.content-modal h2{
-  margin-bottom: 15px;
-}
-.content-modal p{
-  padding: 15px 0px;
-  border-top: 1px solid #dbdbdb;
-  border-bottom: 1px solid #dbdbdb;
-}
-.content-modal #btn-cerrar{
-  width: 18%;
-  margin-top: 15px;
-  display: flex;
-  justify-content: flex-end;
-}
-.content-modal #btn-cerrar{
-  padding: 7px 10px;
-  background-color: #5488a3;
-  color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 300ms ease;
-}
-.content-modal #btn-cerrar:hover{
-  background-color:#185E83;
-}
-.cerrar-modal{
-  width:100%;
-  height: 100vh;
-  position: absolute;
-  top:0; left: 0;
-  z-index: -1;
-}
-@media screen and (max-width:800px) {
-  .content-modal{
-      width: 90%;
+@media screen and (max-width: 800px) {
+  .content-modal {
+    width: 90%;
   }
 }
 /*:::Fin Ventana Modal:::*/
 
+
+
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex !important;
+  }
+}
