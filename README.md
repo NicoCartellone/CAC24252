@@ -5,7 +5,6 @@
 
 INTEGRANTES:
 
-* Maria Aredes
-* Nicolas Cartellone
-* Mauricio Cox | coxmau77@gmail.com
-* Gian Franco Montero
+* Maria Aredes | earedes80@gmail.com
+* Nicolas Cartellone | nicolas.cartellone@gmail.com
+* Gian Franco Montero | gianmonteroavalos@gmail.com
