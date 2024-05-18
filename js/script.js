@@ -88,8 +88,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const mostrarProducto = (nombre, descripcion) => {
-  document.getElementById("descripcionProducto").innerHTML = descripcion;
-  document.getElementById("titulo-producto").innerHTML = nombre;
+  document.getElementById("descripcion-modal").innerHTML = descripcion;
+  document.getElementById("titulo-modal").innerHTML = nombre;
   document.getElementById("modal").style.display = "flex";
 };
 
