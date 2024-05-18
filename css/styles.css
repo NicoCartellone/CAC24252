@@ -89,6 +89,7 @@ header{
 }
 
 /*****************  Slider  *******************/
+
 .contenedor{
   width: 100%;
   overflow: hidden;
@@ -262,6 +263,7 @@ header{
 }
 .formulario {
   margin-top: 30px;
+  margin-bottom: 30px;
   width: 65%;
   align-items: center;
 }
@@ -272,7 +274,7 @@ header{
   align-items: center;
   margin: 0 auto;
   width: 100%;
-  height: 500px;
+  height: 600px; 
 }
 .formItem {
   border: none;
@@ -292,7 +294,18 @@ header{
   padding-bottom: 31.2px;
   font-size: 1.5em;
 }
-
+.contenedorArchivo {
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  margin-bottom: 32.1px;
+  width: 100%;
+}
+.inputArchivo {
+  margin: 0 auto;
+  justify-content: center;
+}
 .contenedorDelSelect {
   margin-top: 0px;
   display: flex;
@@ -408,7 +421,7 @@ option {
 
 footer {
   background: var(--main-color);
-  padding: 30px 0; /*15.05*/
+  padding: 30px 0; 
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
@@ -455,7 +468,7 @@ footer {
 
 
 .partFooter img {
-  width: 40%; /**15.05**/
+  width: 40%; 
 }
 
 .social-media i {
@@ -480,10 +493,67 @@ footer {
   border-color: var(--main-color-acento);
 }
 
-/***************  Break Points  ***************/
+
+/*--------------------------------Break Points-------------------------------------------------*/
+
+/*Estilos para Pantallas mas grandes*/
+
+
+@media screen and (min-width: 1200px) {
+
+  /* NavBar */  
+  .nav-links {
+    display: flex !important;
+  }
+  /* Formulario */
+  .formulario {
+    width: 60%;
+  }
+  .contenedorFormulario{
+    height: 650px;
+  }
+  .preguntaDelSelect {
+    text-align: left;
+    font-size: 30px;
+  }
+  .subTexto {
+    font-size: 3.5vw;
+  }
+  .botonSubmit {
+    padding: 0.8rem 2rem;
+  }
+  .formItem {
+    height: 4vh;
+  }
+
+  /*Footer*/
+  .partFooter img {
+    width: 40%; 
+  }
+}
+
 
 /* Estilos para pantallas más medianas (hasta 1200px) */
+
 @media screen and (min-width: 769px) and (max-width: 1200px) {
+  
+  /* Formulario */ 
+  .contenedorFormulario{
+    height: 750px;
+  }
+  .formulario {
+    width: 60%;
+  }
+  .contenedorArchivo{
+    align-items: center;
+  }
+  .checkBox{
+    display: flex;
+    justify-content: space-between;
+  }
+  .texto{
+    padding-left: 15px;
+  }
   /* Conocenos */
   .sectionConocenos div {
     width: 90%;
@@ -497,12 +567,17 @@ footer {
     width: 95%;
     margin-bottom: 40px;
   }
-
+  .partFooter img {
+    width: 20%; 
+  }
 
 }
 
 /* Estilos para pantallas más pequeñas (hasta 768px) */
+
 @media screen and (min-width: 150px) and (max-width: 768px) {
+  /* NavBar */
+
   /* NavBar */
 
   .nav-links {
@@ -526,6 +601,7 @@ footer {
     display: block;
   }
 
+ 
  /*****************  Slider  *******************/
 
   .contenido-slider {
@@ -557,28 +633,28 @@ footer {
   }
 
   /*****************  Formulario  *******************/
-  .datos {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-    grid-gap: 1em;
+  .datos{
+    flex-wrap: wrap;
   }
-  .email {
-    grid-area: 2/1 / span 1 / span 2;
+  .contenedorFormulario{
+    height: 850px;
   }
-  .contenedorDelSelect {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+  .contenedorArchivo{
+    font-size: 15px;
   }
-  .select {
-    height: 2.5em;
-    grid-area: 1/2 / span 1 / span 1;
-    align-self: center;
+  .checkBox{
+    display: flex;
+    justify-content: space-between;
   }
-  .checkBox {
-    grid-area: 3/1 / span 1 / span 2;
+  .texto{
+    font-size: 15px;
+    padding-left: 15px;
+  }
+  .contenedorDelSelect{
+    font-size: 15px;
   }
   .preguntaDelSelect {
+    justify-content: space-between;
     text-align: left;
     font-size: 30px;
   }
@@ -588,10 +664,7 @@ footer {
   .subTexto {
     font-size: 3.5vw;
   }
-  .botonSubmit {
-    padding: 0.8rem 2rem;
-  }
-
+      
 /*****************  Conocenos  *******************/
   .sectionConocenos div {
     width: 90%;
@@ -604,6 +677,9 @@ footer {
     width: 95%;
     margin-bottom: 40px;
   }
+  .partFooter img {
+    width: 20%; 
+  }
   
   .footer-social{
     display: flex;
@@ -613,7 +689,6 @@ footer {
   
   }
 }
-
 
 @media screen and (max-width: 800px) {
   .content-modal {
