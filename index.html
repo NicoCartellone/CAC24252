@@ -45,7 +45,6 @@
     </nav>
   </header>
   
-  
 
   <!--slider-->
 
@@ -172,8 +171,12 @@
           <input class="formItem email" type="email" placeholder="Dirección de email">
 
           <div class="contenedorArchivo">
-            <p class="textoDelArchivo">Sube aquí una imagen de perfil para crear tu cuenta</p>
-            <input class="inputArchivo" type="file" name="image" id="imagenPerfil">
+            <div>
+              <p class="textoDelArchivo">Sube aquí una imagen de perfil para crear tu cuenta</p>
+            </div>
+            <div>
+              <input class="inputArchivo" type="file" name="image" id="imagenPerfil">
+            </div>
           </div>       
         </div>
 
@@ -184,14 +187,18 @@
           </div>
 
         <div class="contenedorDelSelect">
-          <p class="textopreguntaDelSelect">¿Como te enteraste de nuestra pagina?</p>
-          <select class="select" name="select" id="seleccion">
-            <option value="value1">Por Redes sociales</option>
-            <option value="value2">Por recomendación</option>
-            <option value="value3">Por publicidad</option>
-            <option value="value4">Otros</option>
-            <option value="value5" selected>-- Seleccione una opción --</option>
-          </select>
+          <div>
+            <p class="textopreguntaDelSelect">¿Como te enteraste de nuestra pagina?</p>
+          </div>
+          <div>
+            <select class="select" name="select" id="seleccion">
+              <option value="value1">Por Redes sociales</option>
+              <option value="value2">Por recomendación</option>
+              <option value="value3">Por publicidad</option>
+              <option value="value4">Otros</option>
+              <option value="value5" selected>-- Seleccione una opción --</option>
+            </select>
+          </div>
         </div>
 
         <div class="error"></div>

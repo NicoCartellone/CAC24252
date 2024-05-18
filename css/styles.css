@@ -50,7 +50,6 @@ header{
 }
 
 .navbar {
-  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -537,7 +536,20 @@ footer {
 
 @media screen and (min-width: 769px) and (max-width: 1200px) {
   
+  /* NavBar */
+
+  .nav-links {
+    display: flex !important;
+  }
+
+  /*productos modal*/
+
+  .content-modal {
+    width: 90%;
+  }
+
   /* Formulario */ 
+
   .contenedorFormulario{
     height: 750px;
   }
@@ -576,9 +588,7 @@ footer {
 /* Estilos para pantallas más pequeñas (hasta 768px) */
 
 @media screen and (min-width: 150px) and (max-width: 768px) {
-  /* NavBar */
-
-  /* NavBar */
+  /*****************  Navbar  *******************/
 
   .nav-links {
     display: none;
@@ -611,6 +621,11 @@ footer {
   .contenido-slider > div {
     width: 80%;
   }
+
+   /*****************  Productos modal  *******************/
+   .container-modal{
+    padding: 20px;
+   }
 
    /*****************  Tiendas  *******************/
    .map-container {
@@ -687,20 +702,5 @@ footer {
     justify-content: center;
     width: 100%;
   
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .content-modal {
-    width: 90%;
-  }
-}
-/*:::Fin Ventana Modal:::*/
-
-
-
-@media (min-width: 769px) {
-  .nav-links {
-    display: flex !important;
   }
 }
