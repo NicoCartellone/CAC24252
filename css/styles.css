@@ -102,47 +102,51 @@ header{
 .contenido-slider{
   width: 100%;
   height: 600px;
-  padding: 50px;
-  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   flex-shrink: 0;
 }
 
-.contenido-slider:nth-child(1){
-  background-image: url('https://cdn-3.expansion.mx/dims4/default/f23a139/2147483647/strip/true/crop/1492x738+0+0/resize/1800x890!/format/webp/quality/80/?url=https%3A%2F%2Fcdn-3.expansion.mx%2F4a%2F18%2F82a3ab4e4933826a9d52f055b868%2Fhot-sale-meses-sin-intereses.png');
-  background-size: cover;
+.contenido-slider:nth-child(2){
+  background: #ff8400;
   color: #fff;
 }
 
-.contenido-slider:nth-child(2){
-  background-image: url('https://as1.ftcdn.net/v2/jpg/03/36/02/16/1000_F_336021608_AqJQDNtfEioWfCHLJrNbH4t13TaPfL6f.jpg');
-  background-size: cover;
-  font-weight: 800;
-  color: #000;
-}
-
 .contenido-slider:nth-child(3){
-  background-image: url("https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iPhone-13-Pro_Colors_09142021_big.jpg.slideshow-large_2x.jpg");
-  color: black;
-  background-size: cover;
+  background: #129999;
 }
 
-.contenido-slider:nth-child(4){
-  background-image: url("https://about.att.com/ecms/dam/snr/2020/November2020/StoryLevelBanner/11042020_iPhoneProMax_STORY_LEVEL_BANNER_1600x483.jpg");
-  color: white;
-  background-size: cover;
+.contenido-slider > img{
+  width: 400px;
 }
 
-.contenido-slider:nth-child(4) h2{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.contenido-slider > div{
+  width: 40%;
 }
 
 .contenido-slider h2{
-  font-weight: bold;
-  text-align: start;
-  text-align: center;
+  font-weight: 300;
+  text-align: justify;
   line-height: 30px;
+}
+
+.contenido-slider a{
+  color: #fff;
+  background: #332863;
+  width: 100px;
+  display: block;
+  padding: 15px 0;
+  text-align: center;
+  border-radius: 3px;
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+.contenido-slider:nth-child(2) a{
+  background: #fff;
+  color: #332863;
+  
 }
 
 /****************  Artículos  ******************/
@@ -623,13 +627,13 @@ footer {
  
  /*****************  Slider  *******************/
 
-  .contenido-slider {
-    flex-direction: column-reverse;
-  }
+ .contenido-slider {
+  flex-direction: column-reverse;
+}
 
-  .contenido-slider > div {
-    width: 80%;
-  }
+.contenido-slider > div {
+  width: 80%;
+}
 
    /*****************  Productos modal  *******************/
    .container-modal{
