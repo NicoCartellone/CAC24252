@@ -1,17 +1,17 @@
-// Function to display the modal
+// mostrar modal
 const showModal = (title, message) => {
   document.getElementById("titulo-modal").innerHTML = title;
   document.getElementById("descripcion-modal").innerHTML = message;
   document.getElementById("modal").style.display = "flex";
 };
 
-// Close the modal
+// cerrar modal
 document.getElementById("btn-cerrar").onclick = () => {
   document.getElementById("modal").style.display = "none";
   formulario.reset();
 };
 
-// Validate the form and show the success modal
+// validacion email
 const regexEmail = (email) => {
   let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
@@ -46,7 +46,7 @@ formulario.addEventListener("submit", (event) => {
 
   let error = false;
 
-    // Reset errors
+    // resetear errores
     errorNombre.textContent = "";
     errorApellido.textContent = "";
     errorEmail.textContent = "";
@@ -54,7 +54,7 @@ formulario.addEventListener("submit", (event) => {
     errorSelect.textContent = "";
     errorArchivo.textContent = "";
 
-  // Validation
+  // validacion
   if (nombre.value === "") {
     error = true;
     errorNombre.textContent = "El nombre no puede estar vacío.";

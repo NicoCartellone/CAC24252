@@ -1,13 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Menu toggle
   const toggleMenu = () => {
     const navLinks = document.getElementById("navLinks");
     navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
   };
 
   document.querySelector(".menu-icon").addEventListener("click", toggleMenu);
-
-  // Navigation smooth scroll
   const navLinks = document.querySelectorAll(".nav-link");
   const navbarHeight = document.querySelector("header").offsetHeight;
 
@@ -56,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  // Load products
+  // Productos
   const loadProducts = async () => {
     try {
       const response = await fetch("productos.json");
