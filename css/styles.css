@@ -50,7 +50,6 @@ header{
 }
 
 .navbar {
-  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -149,6 +148,7 @@ header{
   color: #332863;
   
 }
+
 /****************  Artículos  ******************/
 
 .contenedor-articulo {
@@ -237,87 +237,82 @@ header{
 
 /*************  Formulario  *******************/
 
-.subTexto {
-  font-family: "Trajan Pro Bold", sans-serif;
-  color: rgb(14, 13, 13);
-  font-size: 30px;
-  text-align: center;
-}
-.texto {
-  font-family: sans-serif;
-  color: rgb(14, 13, 13);
-  font-size: 16px;
-}
-.contenedorContacto {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  flex-direction: column;
-}
-.imagenContacto {
-  position: center;
-  height: 162px;
-  width: 100%;
-}
-.formulario {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  width: 65%;
-  align-items: center;
-}
-.contenedorFormulario {
+#contacto {
   background-color: var(--background-color-formulario);
+}
+
+.contenedorFormulario {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
+  justify-content: center;
+  align-content: center;
   width: 100%;
-  height: 600px; /*16.05*/
+  padding: 20px;
 }
+
+.contenedorFormulario label {
+ font-weight: bold;
+ margin-bottom: 10px;
+ margin-top: 20px;
+}
+
+.titulo-contacto {
+ padding-top: 30px;
+ text-align: center;
+}
+
+.formulario {
+  width: 100%;
+  max-width: 600px; /* Ajusta este valor según sea necesario */
+  margin: 0 auto;
+}
+
 .formItem {
   border: none;
   border-radius: 4px;
-  border-top-color: #2c2c2c;
-  border-bottom-color: #2c2c2c;
-  width: 100%;
-  height: 32.4px;
-  font-size: 16px;
+  padding: 10px;
 }
+
 .datos {
   display: flex;
   flex-direction: column;
-  gap: 21.6px;
 }
+.checkBox-container {
+  display: flex;
+  align-items: center;
+}
+
+.checkBox-container .inputCheckBox {
+  margin-right: 8px;
+}
+
 .checkBox {
-  padding-bottom: 31.2px;
-  font-size: 1.5em;
+  display: flex;
+  flex-direction: column;
 }
+
+.textopreguntaDelSelect{
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.textoDelArchivo{
+  font-weight: bold;
+  margin-top: 20px;
+}
+
 .contenedorArchivo {
-  margin-top: 0px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: left;
-  margin-bottom: 32.4px;
-  width: 100%;
-}
-.inputArchivo {
-  margin: 0 auto;
-  justify-content: center;
-}
-.contenedorDelSelect {
-  margin-top: 0px;
-  display: flex;
-  justify-content: left;
-  margin-bottom: 32.4px;
+  flex-direction: column;
+  margin-bottom: 32.1px;
   width: 100%;
 }
 
-.preguntaDelSelect {
-  text-align: center;
-  margin-top: 32.4px;
-  margin-bottom: 32.4px;
+.contenedorDelSelect {
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .contenedorDelSubmit {
@@ -326,15 +321,16 @@ header{
   justify-content: center;
   align-items: center;
 }
+
 option {
   text-align: center;
 }
+
 .botonSubmit {
+  width: 100%; /* Asegura que el botón ocupe el ancho del contenedor padre */
+  max-width: 200px; /* Ajusta este valor según sea necesario */
   padding: 0.8rem 2rem;
   border: 1px solid #2c2c2c;
-  display: flex;
-  align-items: center;
-
   background-color: #1a1a1a;
   color: #ffffff;
   font-size: 1.2rem;
@@ -342,12 +338,25 @@ option {
   border-radius: 30px;
   transition: all 0.4s ease;
   outline: none;
-  position: relative;
-  overflow: hidden;
   font-weight: bold;
 }
+
+.contenedorDelSubmit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
 .select {
   height: 43.2px;
+}
+
+.error {
+  color: #6b0505;
+  font-size: 0.875em;
+  margin-top: 0.25em;
+  font-weight: bold;
 }
 
 /*****************  Visitanos  *******************/
@@ -497,8 +506,6 @@ footer {
 /*--------------------------------Break Points-------------------------------------------------*/
 
 /*Estilos para Pantallas mas grandes*/
-
-
 @media screen and (min-width: 1200px) {
 
   /* NavBar */  
@@ -510,7 +517,7 @@ footer {
     width: 60%;
   }
   .contenedorFormulario{
-    height: 650px;
+    height: auto;
   }
   .preguntaDelSelect {
     text-align: left;
@@ -534,20 +541,36 @@ footer {
 
 
 /* Estilos para pantallas más medianas (hasta 1200px) */
-
 @media screen and (min-width: 769px) and (max-width: 1200px) {
   
+  /* NavBar */
+
+  .nav-links {
+    display: flex !important;
+  }
+
+  /*productos modal*/
+
+  .content-modal {
+    width: 90%;
+  }
+
   /* Formulario */ 
+
   .contenedorFormulario{
-    height: 750px;
+    height: auto;
   }
   .formulario {
     width: 60%;
   }
-  .contenedorArchivo{
-    align-items: center;
-  }
 
+  .checkBox{
+    display: flex;
+    justify-content: space-between;
+  }
+  .texto{
+    padding-left: 15px;
+  }
   /* Conocenos */
   .sectionConocenos div {
     width: 90%;
@@ -568,10 +591,8 @@ footer {
 }
 
 /* Estilos para pantallas más pequeñas (hasta 768px) */
-
 @media screen and (min-width: 150px) and (max-width: 768px) {
-
-  /* NavBar */
+  /*****************  Navbar  *******************/
 
   .nav-links {
     display: none;
@@ -594,16 +615,30 @@ footer {
     display: block;
   }
 
+   /*****************  Formulario  *******************/
+  .contenedorFormulario{
+    padding: 20px;
+  }
+
+  .botonSubmit {
+    max-width: 100%;
+  }
+
  
  /*****************  Slider  *******************/
 
-  .contenido-slider {
-    flex-direction: column-reverse;
-  }
+ .contenido-slider {
+  flex-direction: column-reverse;
+}
 
-  .contenido-slider > div {
-    width: 80%;
-  }
+.contenido-slider > div {
+  width: 80%;
+}
+
+   /*****************  Productos modal  *******************/
+   .container-modal{
+    padding: 20px;
+   }
 
    /*****************  Tiendas  *******************/
    .map-container {
@@ -632,7 +667,22 @@ footer {
   .contenedorFormulario{
     height: 850px;
   }
+  .contenedorArchivo{
+    font-size: 15px;
+  }
+  .checkBox{
+    display: flex;
+    justify-content: space-between;
+  }
+  .texto{
+    font-size: 15px;
+    padding-left: 15px;
+  }
+  .contenedorDelSelect{
+    font-size: 15px;
+  }
   .preguntaDelSelect {
+    justify-content: space-between;
     text-align: left;
     font-size: 30px;
   }
@@ -665,20 +715,5 @@ footer {
     justify-content: center;
     width: 100%;
   
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .content-modal {
-    width: 90%;
-  }
-}
-/*:::Fin Ventana Modal:::*/
-
-
-
-@media (min-width: 769px) {
-  .nav-links {
-    display: flex !important;
   }
 }

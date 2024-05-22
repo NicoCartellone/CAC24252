@@ -20,9 +20,10 @@
 
   <header>
     <div class="banner">
-      <p id="scrolling-text">Pedido mínimo $10.000 || Envíos GRATIS en compras superiores a $40.000</p>
+      <p id="scrolling-text">Pedido mínimo $6.000 || Envíos GRATIS en compras superiores a $10.000</p>
     </div>
-    
+
+
     <nav class="navbar">
       <div class="logo">
         <img src="img/logo.png" alt="Logo">
@@ -39,7 +40,7 @@
       </div>
     </nav>
   </header>
-  
+
 
   <!--slider-->
 
@@ -89,8 +90,8 @@
     <input type="checkbox" id="btn-modal">
     <div class="container-modal" id="modal">
       <div class="content-modal">
-        <h2 id="titulo-producto"></h2>
-        <p id="descripcionProducto"></p>
+        <h2 id="titulo-modal"></h2>
+        <p id="descripcion-modal"></p>
         <div id="btn-cerrar">
           Cerrar
         </div>
@@ -149,42 +150,51 @@
 
   <!--formulario-->
 
-  <section id="contacto" class="section contacto">
-    <div class="contenedorFormulario">
-      <div class="contenedorContacto">
-        <br>
-        <h3>Suscribite a nuestra Tienda</h3>
-        <br>
-      </div>
+  <section id="contacto">
+    <div class="titulo-contacto">
+      <h3>Suscribite a nuestra Tienda</h3>
+    </div>
 
+    <div class="contenedorFormulario">
       <form class="formulario" action="post">
 
         <div class="datos">
-          <input class="formItem nombre" type="text" placeholder="Nombre">
-          <input class="formItem apellido" type="text" placeholder="Apellido">
-          <input class="formItem email" type="email" placeholder="Dirección de email">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" class="formItem nombre" type="text" placeholder="Ingrese su nombre">
+          <div class="error error-nombre"></div>
+          <label for="apellido">Apellido</label>
+          <input id="apellido" class="formItem apellido" type="text" placeholder="Ingrese su apellido">
+          <div class="error error-apellido"></div>
+          <label for="email">Email</label>
+          <input id="email" class="formItem email" type="email" placeholder="email@ejemplo.com">
+          <div class="error error-email"></div>
+
+          <div class="contenedorDelSelect">
+            <p class="textopreguntaDelSelect">¿Como te enteraste de nuestra pagina?</p>
+            <select class="select" name="select" id="seleccion">
+              <option value="value5" >-- Seleccione una opción --</option>
+              <option value="value1">Por Redes sociales</option>
+              <option value="value2">Por recomendación</option>
+              <option value="value3">Por publicidad</option>
+              <option value="value4">Otros</option>
+            </select>
+            <div class="error error-select"></div>
+          </div>
 
           <div class="contenedorArchivo">
             <p class="textoDelArchivo">Sube aquí una imagen de perfil para crear tu cuenta</p>
             <input class="inputArchivo" type="file" name="image" id="imagenPerfil">
-          </div>       
+            <div class="error error-archivo"></div>
+          </div>
         </div>
 
-          <div class="checkBox">
+        <div class="checkBox">
+          <div class="checkBox-container">
             <input class="inputCheckBox" type="checkbox" id="politicasDePrivacidad">
             <label class="texto" for="politicasDePrivacidad">Acepto la <a href="">Política de Privacidad</a>.
               (Puedes darte de baja en cualquier momento). </label>
           </div>
-
-        <div class="contenedorDelSelect">
-          <p class="textopreguntaDelSelect">¿Como te enteraste de nuestra pagina?</p>
-          <select class="select" name="select" id="seleccion">
-            <option value="value1">Por Redes sociales</option>
-            <option value="value2">Por recomendación</option>
-            <option value="value3">Por publicidad</option>
-            <option value="value4">Otros</option>
-            <option value="value5" selected>-- Seleccione una opción --</option>
-          </select>
+          <div class="error error-privacidad"></div>
         </div>
 
         <div class="error"></div>
