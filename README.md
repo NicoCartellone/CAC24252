@@ -5,6 +5,7 @@
 
 INTEGRANTES:
 
-* Maria Aredes | earedes80@gmail.com
+* Maria Emilse Aredes | earedes80@gmail.com
 * Nicolas Cartellone | nicolas.cartellone@gmail.com
 * Gian Franco Montero | gianmonteroavalos@gmail.com
+* Marcos Pablo Martin | martinmarcospablo@gmail.com
