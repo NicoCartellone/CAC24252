@@ -8,3 +8,38 @@ INTEGRANTES:
 * Maria Aredes | earedes80@gmail.com
 * Nicolas Cartellone | nicolas.cartellone@gmail.com
 * Gian Franco Montero | gianmonteroavalos@gmail.com
+
+# Backend
+
+## Instrucciones de inicio
+
+Para iniciar el backend, sigue los siguientes pasos:
+
+1. Asegúrate de tener Node.js y npm instalados en tu sistema.
+2. Clona este repositorio en tu máquina local.
+3. Navega hasta el directorio del proyecto en tu terminal.
+4. Ejecuta el siguiente comando para instalar las dependencias:
+
+    ```
+    npm install
+    ```
+
+5. Crea un archivo `.env` en la raíz del proyecto y define las variables de entorno mencionadas anteriormente. Por ejemplo:
+
+    ```
+    PORT=3000
+    HOST=localhost
+    USER=root
+    PASSWORD=contraseña
+    DATABASE=nombre_db
+    ```
+Para que node pueda leer el archivo .env se debe tener la version 20 o superior.
+
+6. Ejecuta el siguiente comando para iniciar el servidor:
+
+    ```
+    npm run dev
+    ```
+Este script por detras corre el siguete comando: nodemon --env-file .env src src/index.js
+
+¡Listo! El backend estará funcionando en el puerto especificado y conectado a la base de datos configurada.
