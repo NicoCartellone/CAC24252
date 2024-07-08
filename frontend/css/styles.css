@@ -86,7 +86,61 @@ header{
 .nav-links a:hover {
   color: var(--main-color-acento);
 }
+/*06-07-2024*/
+.button{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  }
 
+ /* Estilo para los botones */
+ .btn-navbar {
+  max-width: 200px; /* Ajusta este valor según sea necesario */
+  background-color: #1a1a1a;
+  border: 1px solid #2c2c2c;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  cursor: pointer;
+  position: relative;
+ 
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-navbar:hover {
+  background-color:  #129999;
+   border: 1px solid #2c2c2c;
+}
+
+/* Estilo para el contenido del menú desplegable */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #dcedf5;
+}
+
+/* Mostrar el menú desplegable al pasar el ratón sobre el botón */
+.btn-navbar:hover .dropdown-content {
+  display: block;
+}
 /*****************  Slider  *******************/
 
 .contenedor{
@@ -235,6 +289,30 @@ header{
   z-index: -1;
 }
 
+/*06-07-2024*/
+.content-modal #btn-comprar {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  padding: 10px;
+  background-color: #157347;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+.content-modal #btn-comprar:hover {
+  background-color: #000;
+}
+
+.container-modal-button{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  margin: 10px;
+}
+
 /*************  Formulario  *******************/
 
 #contacto {
@@ -248,6 +326,10 @@ header{
   align-content: center;
   width: 100%;
   padding: 20px;
+}
+/*06-07-2024*/
+.contenedorFormulario h1 {
+  text-align: center;
 }
 
 .contenedorFormulario label {
@@ -502,6 +584,62 @@ footer {
   border-color: var(--main-color-acento);
 }
 
+/*06-07-2024*/
+
+ /*****************  Register-Login  *******************/
+ .login__heading {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 900;
+  margin: 2rem 0;
+  border-radius: 2rem;
+  color: #131313;
+  margin: 6rem 0 3rem 0;
+  text-align: center;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formulario__campo {
+  display: flex;
+  flex-direction: column;
+  gap: 1 rem;
+  margin: 0 rem;
+}
+.formulario__label {
+  display: block;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+.formulario__input{
+  padding: 1rem;
+  border: 1px solid var(--color-primario);
+  border-radius: 0.5rem;
+  width: 35rem;
+  max-width: 35rem;
+  background: #ececec;
+}
+
+
+.formulario__input:focus {
+  outline: none;
+  box-shadow: 0px 0px 21px 10px rgba(232, 90, 25, 0.29);
+}
+
+
+.formulario__input::placeholder {
+  color: #222;
+}
+
+.acciones__enlaces {
+  display: flex;
+  color: var(--color-primario);
+  justify-content: center;
+}
 
 /*--------------------------------Break Points-------------------------------------------------*/
 
