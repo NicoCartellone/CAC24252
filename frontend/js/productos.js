@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const btnProductos = document.getElementById('btn-productos');
-    const newTable = document.getElementById('admin-table');
+    const btnProductos = document.getElementById("btn-productos");
+    const newTable = document.getElementById("admin-table");
 
     // Función para obtener y mostrar productos
     const getProducts = async () => {
         // Limpiar contenido actual
-        newTable.innerHTML = '';
+        newTable.innerHTML = "";
 
         // Crear una sola tabla
-        const table = document.createElement('table');
-        table.className = 'table user-list';
+        const table = document.createElement("table");
+        table.className = "table user-list";
 
         // Crear el encabezado de la tabla
         table.innerHTML = `
@@ -29,16 +29,18 @@ document.addEventListener("DOMContentLoaded", function () {
         newTable.appendChild(table);
 
         // Obtener productos
-        const response = await fetch('http://localhost:8080/productos');
+        const response = await fetch("http://localhost:8080/productos");
         const products = await response.json();
 
         // Iterar sobre cada producto y agregarlos como filas a la tabla
-        products.forEach(async product => {
-            const categoryResponse = await fetch(`http://localhost:8080/categorias/${product.id_categoria}`);
+        products.forEach(async (product) => {
+            const categoryResponse = await fetch(
+                `http://localhost:8080/categorias/${product.id_categoria}`
+            );
             const category = await categoryResponse.json();
             // Crear una nueva fila
-            const row = document.createElement('tr');
-            
+            const row = document.createElement("tr");
+
             // Añadir celdas con los datos del producto
             row.innerHTML = `
                 <td class="text-center">${product.nombre}</td>
@@ -62,12 +64,12 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
 
             // Agregar la fila al cuerpo de la tabla
-            table.querySelector('tbody').appendChild(row);
+            table.querySelector("tbody").appendChild(row);
         });
-    }
+    };
 
-     // Función para crear el botón y modal de Productos
-     const createBtnOpenModalProductos = () => {
+    // Función para crear el botón y modal de Productos
+    const createBtnOpenModalProductos = () => {
         const btnOpenModal = document.getElementById("btn-open-modal");
         btnOpenModal.innerHTML = `
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-producto">

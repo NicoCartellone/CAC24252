@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         roles.forEach(role => {
             // Crear una nueva fila
             const row = document.createElement('tr');
-            
+
             // Añadir celdas con los datos del rol
             row.innerHTML = `
                 <td class="text-center">${role.id}</td>
@@ -60,8 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-     // Función para crear el botón y modal de Roles
-     const createBtnOpenModalRoles = () => {
+    // Función para crear el botón y modal de Roles
+    const createBtnOpenModalRoles = () => {
         const btnOpenModal = document.getElementById("btn-open-modal");
         btnOpenModal.innerHTML = `
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-rol">
