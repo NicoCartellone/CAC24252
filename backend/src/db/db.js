@@ -60,7 +60,7 @@ connection.connect((err) => {
               nombre VARCHAR(50) NOT NULL,
               apellido VARCHAR(50) NOT NULL,
               email VARCHAR(100) NOT NULL,
-              contraseña VARCHAR(50) NOT NULL,
+              contraseña VARCHAR(200) NOT NULL,
               id_rol INT DEFAULT 1,
               FOREIGN KEY (id_rol) REFERENCES Rol(id)
             )
