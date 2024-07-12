@@ -345,7 +345,7 @@ header {
 }
 
 .contenedorFormulario form {
-  height: 60vh;
+  height: 80vh;
 }
 
 /*06-07-2024*/
@@ -420,13 +420,6 @@ header {
   width: 100%;
 }
 
-.contenedorDelSubmit {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 option {
   text-align: center;
 }
@@ -465,6 +458,31 @@ option {
   margin-top: 0.25em;
   font-weight: bold;
 }
+
+/*****************  Login  *******************/
+.contenedorFormularioLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.contenedorFormularioLogin form {
+  height: 60vh;
+}
+
+.contenedorFormularioLogin h1 {
+  text-align: center;
+}
+
+.contenedorFormularioLogin label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
 
 /*****************  Visitanos  *******************/
 
