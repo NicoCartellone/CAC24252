@@ -30,23 +30,20 @@ document.addEventListener("DOMContentLoaded", function () {
         // Agregar la tabla al contenedor
         newTable.appendChild(table);
 
-        try {
-            // Obtener productos desde el servidor
-            const response = await fetch(`${baseURL}productos`);
-            const products = await response.json();
+        // Obtener productos desde el servidor
+        const response = await fetch(`${baseURL}productos`);
+        const products = await response.json();
 
-            // Iterar sobre cada producto y agregarlos como filas a la tabla
-            products.forEach(async (product) => {
-                // Obtener la categoría del producto
-                console.log(product.id_categoria);
-                const categoryResponse = await fetch(`${baseURL}categorias/${product.id_categoria}`);
-                const category = await categoryResponse.json();
+        // Iterar sobre cada producto y agregarlos como filas a la tabla
+        products.forEach(async (product) => {
+            const categoryResponse = await fetch(`${baseURL}categorias/${product.id_categoria}`);
+            const category = await categoryResponse.json();
 
-                // Crear una nueva fila
-                const row = document.createElement("tr");
+            // Crear una nueva fila
+            const row = document.createElement("tr");
 
-                // Añadir celdas con los datos del producto
-                row.innerHTML = `
+            // Añadir celdas con los datos del producto
+            row.innerHTML = `
                     <td class="text-center">${product.nombre}</td>
                     <td class="text-center">${product.descripcion}</td>
                     <td class="text-center">${category.nombre}</td>
@@ -67,25 +64,22 @@ document.addEventListener("DOMContentLoaded", function () {
                     </td>
                 `;
 
-                // Agregar listener para el botón de eliminar producto
-                const btnEliminar = row.querySelector(".btn-eliminar");
-                btnEliminar.addEventListener("click", () => {
-                    const productId = btnEliminar.getAttribute("data-producto-id");
-                    eliminarProducto(productId);
-                });
-
-                // Agregar listener para el botón de actualizar producto
-                const btnActualizar = row.querySelector(".fa-pencil");
-                btnActualizar.addEventListener("click", () => {
-                    mostrarModalActualizar(product);
-                });
-
-                // Agregar la fila al cuerpo de la tabla
-                table.querySelector("tbody").appendChild(row);
+            // Agregar listener para el botón de eliminar producto
+            const btnEliminar = row.querySelector(".btn-eliminar");
+            btnEliminar.addEventListener("click", () => {
+                const productId = btnEliminar.getAttribute("data-producto-id");
+                eliminarProducto(productId);
             });
-        } catch (error) {
-            console.error("Error:", error);
-        }
+
+            // Agregar listener para el botón de actualizar producto
+            const btnActualizar = row.querySelector(".fa-pencil");
+            btnActualizar.addEventListener("click", () => {
+                mostrarModalActualizar(product);
+            });
+
+            // Agregar la fila al cuerpo de la tabla
+            table.querySelector("tbody").appendChild(row);
+        });
     };
 
     // Función para crear un producto
@@ -98,7 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
             descripcion: formData.get("descripcion-producto"),
             precio: parseFloat(formData.get("precio-producto")), // Convertir a número flotante
             id_categoria: parseInt(formData.get("categoria-producto")), // Convertir a número entero
-            // Puedes agregar más campos según necesidad
         };
 
         try {
@@ -116,9 +109,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Actualizar la tabla de productos
             getProducts();
-
-            // Limpiar el formulario después de crear el producto
-            form.reset();
         } catch (error) {
             console.error("Error:", error);
         }
@@ -168,13 +158,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Actualizar la tabla de productos después de actualizar
             getProducts();
+            form.reset();
         } catch (error) {
             console.error("Error:", error);
         }
     }
 
     // Función para crear el botón y modal de Productos
-    const createBtnOpenModalProductos = async() => {
+    const createBtnOpenModalProductos = async () => {
         const btnOpenModal = document.getElementById("btn-open-modal");
         btnOpenModal.innerHTML = `
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-producto">
@@ -224,11 +215,11 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
 
         // Cargar opciones de categorías en el formulario de crear producto
-        
+
         const btnSaveProducto = document.getElementById("btn-guardar-producto");
         btnSaveProducto.addEventListener("click", crearProducto);
-        
-        await loadCategoriasOptions();
+
+        // await loadCategoriasOptions();
     };
 
     const mostrarModalActualizar = async (producto) => {
@@ -244,9 +235,6 @@ document.addEventListener("DOMContentLoaded", function () {
         form.querySelector("#nombre-producto").value = producto.nombre;
         form.querySelector("#descripcion-producto").value = producto.descripcion;
         form.querySelector("#precio-producto").value = producto.precio;
-        
-        await loadCategoriasOptions();
-
         form.querySelector("#categoria-producto").value = producto.id_categoria;
 
         const btnSaveProducto = document.getElementById("btn-guardar-producto");

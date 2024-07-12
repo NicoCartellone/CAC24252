@@ -220,8 +220,6 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         `;
 
-    
-
     const btnCloseModal = document.getElementById("btn-close-modal");
     btnCloseModal.addEventListener("click", () => {
       const form = document.getElementById("form-crear-usuario");
@@ -240,11 +238,31 @@ document.addEventListener("DOMContentLoaded", function () {
       btnGuardar.removeEventListener("click", actualizarUsuario);
     })
 
+    // Obtener roles y actualizar el select
+    try {
+      const response = await fetch(`${baseURL}roles`);
+      if (!response.ok) {
+          throw new Error("Error al obtener los roles");
+      }
+      const roles = await response.json();
+      const selectRoles = document.getElementById("rol-usuario");
+      selectRoles.innerHTML = ''; // Limpiar opciones anteriores
+      roles.forEach(role => {
+          const option = document.createElement('option');
+          option.value = role.id; // Asegúrate de tener el ID del rol
+          option.textContent = role.nombre;
+          selectRoles.appendChild(option);
+      });
+  } catch (error) {
+      console.error("Error:", error);
+      // Manejar el error según tu necesidad (por ejemplo, mostrar un mensaje al usuario)
+  }
+
 
     const btnSaveUsuario = document.getElementById("btn-guardar-usuario");
     btnSaveUsuario.addEventListener("click", crearUsuario);
 
-    await loadRolesOptions();
+    
   };
 
   const mostrarModalActualizar = async (user) => {
@@ -273,22 +291,6 @@ document.addEventListener("DOMContentLoaded", function () {
         modalUsuario.hide();
     });
 };
-
-  const loadRolesOptions = async () => {
-    const selectRol = document.getElementById("rol-usuario");
-    selectRol.innerHTML = "";
-
-    const responnse = await fetch(`${baseURL}roles`);
-    const roles = await responnse.json();
-
-    roles.forEach((rol) => {
-      const option = document.createElement("option");
-      option.value = rol.id;
-      option.text = rol.nombre;
-
-      selectRol.appendChild(option);
-    });
-  };
 
   // Cargar la tabla de usuarios al cargar la página
   getUsers();
