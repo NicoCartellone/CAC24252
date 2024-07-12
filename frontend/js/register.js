@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const registerForm = document.getElementById("register-form");
+    const baseURL = "https://cac-ecommerce.vercel.app/"
+    const localURL = "http://localhost:8080/"
 
     registerForm.addEventListener("submit", async function (event) {
         event.preventDefault();
@@ -10,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const password = document.getElementById("password").value;
 
         try {
-            const response = await fetch("http://localhost:8080/usuarios", {
+            const response = await fetch(`${baseURL}usuarios`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

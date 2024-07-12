@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const btnCategorias = document.getElementById('btn-categorias');
     const newTable = document.getElementById('admin-table');
+    const baseURL = "https://cac-ecommerce.vercel.app/"
+    const localURL = "http://localhost:8080/"
 
     // Función para obtener y mostrar categorias
     const getCategories = async () => {
@@ -27,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         newTable.appendChild(table);
 
         // Obtener categorias
-        const response = await fetch('http://localhost:8080/categorias');
+        const response = await fetch(`${baseURL}categorias`);
         const categories = await response.json();
 
         // Iterar sobre cada categoria y agregarlos como filas a la tabla
@@ -80,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         try {
-            const response = await fetch("http://localhost:8080/categorias/", {
+            const response = await fetch(`${baseURL}categorias/`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -103,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Función para eliminar una categoría
     const eliminarCategoria = async (categoriaId) => {
         try {
-            const response = await fetch(`http://localhost:8080/categorias/${categoriaId}`, {
+            const response = await fetch(`${baseURL}categorias/${categoriaId}`, {
                 method: "DELETE",
             });
 
@@ -128,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         try {
-            const response = await fetch(`http://localhost:8080/categorias/${categoriaId}`, {
+            const response = await fetch(`${baseURL}categorias/${categoriaId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

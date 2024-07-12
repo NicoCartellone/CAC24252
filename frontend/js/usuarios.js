@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   const btnUsuarios = document.getElementById("btn-usuarios");
   const newTable = document.getElementById("admin-table");
+  const baseURL = "https://cac-ecommerce.vercel.app/"
+  const localURL = "http://localhost:8080/"
 
   // Función para obtener y mostrar usuarios
   const getUsers = async () => {
@@ -28,14 +30,12 @@ document.addEventListener("DOMContentLoaded", function () {
     newTable.appendChild(table);
 
     // Obtener usuarios
-    const response = await fetch("http://localhost:8080/usuarios");
-    const users = await response.json();
+    const responseUsuarios = await fetch(`${baseURL}usuarios`);
+    const users = await responseUsuarios.json();
 
     // Iterar sobre cada usuario y agregarlos como filas a la tabla
     users.forEach(async (user) => {
-      const roleNameResponse = await fetch(
-        `http://localhost:8080/roles/${user.id_rol}`
-      );
+      const roleNameResponse = await fetch(`${baseURL}roles/${user.id_rol}`);
       const role = await roleNameResponse.json();
 
       // Crear una nueva fila
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     try {
-      const response = await fetch("http://localhost:8080/usuarios/", {
+      const response = await fetch(`${baseURL}usuarios/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Función para crear el usuario
   const eliminarUsuario = async (userId) => {
     try {
-      const response = await fetch(`http://localhost:8080/usuarios/${userId}`, {
+      const response = await fetch(`${baseURL}usuarios/${userId}`, {
         method: "DELETE",
       });
 
@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     try {
-        const response = await fetch(`http://localhost:8080/usuarios/${userId}`, {
+        const response = await fetch(`${baseURL}usuarios/${userId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
 };
 
   // Función para crear el botón y modal de Usuarios
-  const createBtnOpenModalUsuarios = () => {
+  const createBtnOpenModalUsuarios = async() => {
     const btnOpenModal = document.getElementById("btn-open-modal");
     btnOpenModal.innerHTML = `
             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-usuario">
@@ -220,6 +220,8 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         `;
 
+    
+
     const btnCloseModal = document.getElementById("btn-close-modal");
     btnCloseModal.addEventListener("click", () => {
       const form = document.getElementById("form-crear-usuario");
@@ -238,10 +240,11 @@ document.addEventListener("DOMContentLoaded", function () {
       btnGuardar.removeEventListener("click", actualizarUsuario);
     })
 
-    loadRolesOptions();
 
     const btnSaveUsuario = document.getElementById("btn-guardar-usuario");
     btnSaveUsuario.addEventListener("click", crearUsuario);
+
+    await loadRolesOptions();
   };
 
   const mostrarModalActualizar = async (user) => {
@@ -275,7 +278,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const selectRol = document.getElementById("rol-usuario");
     selectRol.innerHTML = "";
 
-    const responnse = await fetch("http://localhost:8080/roles");
+    const responnse = await fetch(`${baseURL}roles`);
     const roles = await responnse.json();
 
     roles.forEach((rol) => {
