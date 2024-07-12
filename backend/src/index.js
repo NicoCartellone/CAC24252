@@ -13,6 +13,9 @@ const PORT = process.env.PORT || 3000
 app.use(cors());
 app.use(express.json())
 
+app.get('/', (req, res) => {
+    res.send('Bienvenido API E-commerce')
+})
 app.use('/roles', roleRouter)
 app.use('/usuarios', userRouter)
 app.use('/productos', productRouter)
