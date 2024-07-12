@@ -28,13 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
     newTable.appendChild(table);
 
     // Obtener usuarios
-    const response = await fetch("http://localhost:8080/usuarios");
+    const response = await fetch("http://localhost:3000/usuarios");
     const users = await response.json();
 
     // Iterar sobre cada usuario y agregarlos como filas a la tabla
     users.forEach(async (user) => {
       const roleNameResponse = await fetch(
-        `http://localhost:8080/roles/${user.id_rol}`
+        `http://localhost:3000/roles/${user.id_rol}`
       );
       const role = await roleNameResponse.json();
 
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     try {
-      const response = await fetch("http://localhost:8080/usuarios/", {
+      const response = await fetch("http://localhost:3000/usuarios/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Función para crear el usuario
   const eliminarUsuario = async (userId) => {
     try {
-      const response = await fetch(`http://localhost:8080/usuarios/${userId}`, {
+      const response = await fetch(`http://localhost:3000/usuarios/${userId}`, {
         method: "DELETE",
       });
 
@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     try {
-        const response = await fetch(`http://localhost:8080/usuarios/${userId}`, {
+        const response = await fetch(`http://localhost:3000/usuarios/${userId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -250,7 +250,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const selectRol = document.getElementById("rol-usuario");
     selectRol.innerHTML = "";
 
-    const responnse = await fetch("http://localhost:8080/roles");
+    const responnse = await fetch("http://localhost:3000/roles");
     const roles = await responnse.json();
 
     roles.forEach((rol) => {

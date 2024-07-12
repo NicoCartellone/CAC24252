@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Crear una sola tabla
         const table = document.createElement('table');
-        table.className = 'table user-list';
+        table.className = 'table product-list';
 
         // Crear el encabezado de la tabla
         table.innerHTML = `
@@ -29,12 +29,12 @@ document.addEventListener("DOMContentLoaded", function () {
         newTable.appendChild(table);
 
         // Obtener productos
-        const response = await fetch('http://localhost:8080/productos');
+        const response = await fetch('http://localhost:3000/productos/');
         const products = await response.json();
 
         // Iterar sobre cada producto y agregarlos como filas a la tabla
         products.forEach(async product => {
-            const categoryResponse = await fetch(`http://localhost:8080/categorias/${product.id_categoria}`);
+            const categoryResponse = await fetch(`http://localhost:3000/categorias/${product.id_categoria}`);
             const category = await categoryResponse.json();
             // Crear una nueva fila
             const row = document.createElement('tr');
@@ -43,8 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
             row.innerHTML = `
                 <td class="text-center">${product.nombre}</td>
                 <td class="text-center">${product.descripcion}</td>
-                <td class="text-center">${category.nombre}</td>
                 <td class="text-center">${product.precio}</td>
+                <td class="text-center">${category.nombre}</td>
+                
                 <td class="text-center">
                     <a href="#" class="table-link">
                         <span class="fa-stack">
@@ -61,10 +62,106 @@ document.addEventListener("DOMContentLoaded", function () {
                 </td>
             `;
 
+            const btnEliminar = row.querySelector(".btn-eliminar");
+      btnEliminar.addEventListener("click", () => {
+        const productId = btnEliminar.getAttribute("data-product-id");
+        eliminarProducto(productId);
+      });
+
+      // Agregar el EventListener al botón de actualizar
+      const btnActualizar = row.querySelector(".fa-pencil");
+      btnActualizar.addEventListener("click", () => {
+        mostrarModalActualizar(category);
+      });
+
             // Agregar la fila al cuerpo de la tabla
             table.querySelector('tbody').appendChild(row);
         });
+    };
+
+
+    // Función para crear el producto
+  const crearProducto = async () => {
+    const form = document.getElementById("form-crear-producto");
+    const formData = new FormData(form);
+
+    const nuevoProducto = {
+      nombre: formData.get("nombre"),
+      descripcion: formData.get("descripcion"),
+      precio: formData.get("precio"),      
+      id_categoria: parseInt(formData.get("categoria-producto")), // Convertir a número entero
+    };
+
+    try {
+      const response = await fetch("http://localhost:3000/productos/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(nuevoProducto),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error al crear el usuario");
+      }
+
+      // Actualizar la tabla de productos
+      getProducts();
+    } catch (error) {
+      console.error("Error:", error);
     }
+  };
+
+  // Función para eliminar el producto
+  const eliminarProductos = async (productId) => {
+    try {
+      const response = await fetch(`http://localhost:3000/productos/${productId}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        throw new Error("Error al eliminar producto");
+      }
+
+      // Actualizar la tabla de producto después de eliminar
+      getProducts();
+    } catch (error) {
+      console.error("Error:", error);
+      // Manejar el error según tu necesidad (por ejemplo, mostrar un mensaje al usuario)
+    }
+  };
+
+  const actualizarProducto = async (productId) => {
+    const form = document.getElementById("form-crear-producto");
+    const formData = new FormData(form);
+
+    const productoActualizado = {
+        nombre: formData.get("nombre"),
+        descripcion: formData.get("descripcion"),
+        precio: formData.get("precio"),      
+        id_categoria: parseInt(formData.get("categoria-producto")) // Convertir a número entero
+    };
+
+    try {
+        const response = await fetch(`http://localhost:3000/productos/${productId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(productoActualizado)
+        });
+
+        if (!response.ok) {
+            throw new Error("Error al actualizar producto");
+        }
+
+        // Actualizar la tabla de usuarios después de actualizar
+        getProducts();
+    } catch (error) {
+        console.error("Error:", error);
+        // Manejar el error según tu necesidad (por ejemplo, mostrar un mensaje al usuario)
+    }
+};//hasta aca
 
      // Función para crear el botón y modal de Productos
      const createBtnOpenModalProductos = () => {
@@ -105,6 +202,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Cargar opciones de categorías en el formulario de crear producto
         loadCategoriasOptions();
+
+        const btnSaveProducto = document.getElementById("btn-guardar-producto");
+        btnSaveProducto.addEventListener("click", crearProducto);
+    };
+    const mostrarModalActualizar = async (product) => {
+        const modalProducto = new bootstrap.Modal(document.getElementById("modal-producto"));
+        modalProducto.show();
+    
+        // Rellenar el formulario con los datos del usuario a actualizar
+        const form = document.getElementById("form-crear-producto");
+        form.reset(); // Limpiar el formulario antes de rellenarlo
+    
+        form.querySelector("#nombre").value = product.nombre;
+        form.querySelector("#descripcion").value = product.descripcion;
+        form.querySelector("#precio").value = user.precio;
+        form.querySelector("#categoria-producto").value = user.id_categoria;
+    
+        // Cambiar el botón "Guardar" por "Actualizar" y actualizar el EventListener
+        const btnGuardar = document.getElementById("btn-guardar-producto");
+        btnGuardar.innerHTML = "Actualizar";
+        btnGuardar.removeEventListener("click", crearProducto); // Remover el EventListener anterior
+        btnGuardar.addEventListener("click", () => {
+            actualizarUsuario(product.id);
+        });
     };
 
     // Función para cargar las opciones de categorías en el formulario de crear producto
@@ -113,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function () {
         selectCategoria.innerHTML = ""; // Limpiar opciones actuales
 
         // Obtener categorías
-        const response = await fetch("http://localhost:8080/categorias");
+        const response = await fetch("http://localhost:3000/categorias");
         const categorias = await response.json();
 
         // Iterar sobre las categorías y agregarlas como opciones al select
