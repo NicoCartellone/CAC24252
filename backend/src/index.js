@@ -10,17 +10,9 @@ const cors = require('cors');
 const app = express()
 const PORT = process.env.PORT || 3000
 
-const whitelist = ['https://66917e8f05661b48c2f62356--cozy-sawine-48f526.netlify.app/']
-
 const corsOptions = {
-    origin: function (origin, callback) {
-        if (whitelist.indexOf(origin) !== -1 || !origin) {
-            callback(null, true)
-        } else {
-            callback(new Error('No permitido por CORS'))
-        }
-    }
-}
+    origin: '*',
+};
 
 app.use(cors(corsOptions));
 app.use(express.json())
