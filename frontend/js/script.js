@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   const toggleMenu = () => {
     const navLinks = document.getElementById("navLinks");
-    navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
+    navLinks.style.display =
+      navLinks.style.display === "flex" ? "none" : "flex";
   };
 
   document.querySelector(".menu-icon").addEventListener("click", toggleMenu);
@@ -59,7 +60,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const response = await fetch("productos.json");
       const data = await response.json();
 
-      const contenedorProductos = document.getElementById("contenedor-productos");
+      const contenedorProductos = document.getElementById(
+        "contenedor-productos"
+      );
       data.forEach((producto) => {
         const productoHTML = `
           <article class="col-lg-4 col-md-6 col-sm-12 mb-5 text-center articulo">
@@ -81,6 +84,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
+  const btnAccountRender = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const btnAccountText = document.getElementById("btn-account-text");
+    const btnAccount = document.getElementById("btn-account");
+    if (user) {
+      btnAccountText.innerText = `${user.usuario.nombre}`
+      btnAccount.innerHTML = `
+        <a id="btn-logout" class="nav-link">Cerrar sesión</a>`;
+    } else {
+      btnAccountText.innerText = "Ingresar";
+      btnAccount.innerHTML = `
+        <a href="/login.html" class="nav-link">Iniciar sesión</a>
+        <a href="/register.html" class="nav-link">Registrarse</a>`;
+    }
+  }
+  btnAccountRender();
   loadProducts();
 });
 
@@ -90,6 +109,6 @@ const mostrarProducto = (nombre, descripcion) => {
   document.getElementById("modal").style.display = "flex";
 };
 
-document.getElementById("btn-cerrar").onclick = () => {
+  document.getElementById("btn-cerrar").onclick = () => {
   document.getElementById("modal").style.display = "none";
 };
