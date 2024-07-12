@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const btnProductos = document.getElementById("btn-productos");
     const newTable = document.getElementById("admin-table");
+    const baseURL = "https://cac-ecommerce.vercel.app/"
+    const localURL = "http://localhost:8080/"
 
     // Función para obtener y mostrar productos
     const getProducts = async () => {
@@ -30,13 +32,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         try {
             // Obtener productos desde el servidor
-            const response = await fetch("http://localhost:8080/productos");
+            const response = await fetch(`${baseURL}productos`);
             const products = await response.json();
 
             // Iterar sobre cada producto y agregarlos como filas a la tabla
             products.forEach(async (product) => {
                 // Obtener la categoría del producto
-                const categoryResponse = await fetch(`http://localhost:8080/categorias/${product.id_categoria}`);
+                console.log(product.id_categoria);
+                const categoryResponse = await fetch(`${baseURL}categorias/${product.id_categoria}`);
                 const category = await categoryResponse.json();
 
                 // Crear una nueva fila
@@ -99,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         try {
-            const response = await fetch("http://localhost:8080/productos/", {
+            const response = await fetch(`${baseURL}productos/`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -124,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Función para eliminar un producto
     const eliminarProducto = async (productoId) => {
         try {
-            const response = await fetch(`http://localhost:8080/productos/${productoId}`, {
+            const response = await fetch(`${baseURL}productos/${productoId}`, {
                 method: "DELETE",
             });
 
@@ -151,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         try {
-            const response = await fetch(`http://localhost:8080/productos/${productoId}`, {
+            const response = await fetch(`${baseURL}productos/${productoId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -171,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Función para crear el botón y modal de Productos
-    const createBtnOpenModalProductos = () => {
+    const createBtnOpenModalProductos = async() => {
         const btnOpenModal = document.getElementById("btn-open-modal");
         btnOpenModal.innerHTML = `
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-producto">
@@ -221,10 +224,11 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
 
         // Cargar opciones de categorías en el formulario de crear producto
-        loadCategoriasOptions();
-
+        
         const btnSaveProducto = document.getElementById("btn-guardar-producto");
         btnSaveProducto.addEventListener("click", crearProducto);
+        
+        await loadCategoriasOptions();
     };
 
     const mostrarModalActualizar = async (producto) => {
@@ -261,7 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         try {
             // Obtener categorías desde el servidor
-            const response = await fetch("http://localhost:8080/categorias");
+            const response = await fetch(`${baseURL}categorias`);
             const categorias = await response.json();
 
             // Iterar sobre las categorías y agregarlas como opciones al select
