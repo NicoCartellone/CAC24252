@@ -95,8 +95,8 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       btnAccountText.innerText = "Ingresar";
       btnAccount.innerHTML = `
-        <a href="/frontend/login.html" class="nav-link">Iniciar sesión</a>
-        <a href="/frontend/register.html" class="nav-link">Registrarse</a>`;
+        <a href="/login.html" class="nav-link">Iniciar sesión</a>
+        <a href="/register.html" class="nav-link">Registrarse</a>`;
     }
   }
   btnAccountRender();

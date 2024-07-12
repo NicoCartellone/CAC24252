@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const btnRoles = document.getElementById('btn-roles');
     const newTable = document.getElementById('admin-table');
+    const baseURL = "https://cac-ecommerce.vercel.app/"
+    const localURL = "http://localhost:8080/"
 
     // Función para obtener y mostrar roles
     const getRoles = async () => {
@@ -27,14 +29,14 @@ document.addEventListener("DOMContentLoaded", function () {
         newTable.appendChild(table);
 
         // Obtener roles
-        const response = await fetch('http://localhost:8080/roles');
+        const response = await fetch(`${baseURL}roles`);
         const roles = await response.json();
 
         // Iterar sobre cada rol y agregarlos como filas a la tabla
         roles.forEach(role => {
             // Crear una nueva fila
             const row = document.createElement('tr');
-            
+
             // Añadir celdas con los datos del rol
             row.innerHTML = `
                 <td class="text-center">${role.id}</td>
@@ -80,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         try {
-            const response = await fetch("http://localhost:8080/roles/", {
+            const response = await fetch(`${baseURL}roles/`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -103,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Función para eliminar un rol
     const eliminarRol = async (roleId) => {
         try {
-            const response = await fetch(`http://localhost:8080/roles/${roleId}`, {
+            const response = await fetch(`${baseURL}roles/${roleId}`, {
                 method: "DELETE",
             });
 
@@ -127,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         try {
-            const response = await fetch(`http://localhost:8080/roles/${roleId}`, {
+            const response = await fetch(`${baseURL}roles/${roleId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

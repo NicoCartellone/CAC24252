@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const loginForm = document.getElementById("login-form");
+    const baseURL = "https://cac-ecommerce.vercel.app/"
+    const localURL = "http://localhost:8080/"
 
     loginForm.addEventListener("submit", async function (event) {
         event.preventDefault();
@@ -8,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const password = document.getElementById("password").value;
 
         try {
-            const response = await fetch("http://localhost:8080/login", {
+            const response = await fetch(`${baseURL}login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -28,10 +30,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (data.usuario.id_rol === 1) {
                 // Redirige al usuario administrador a admin.html
-                window.location = "/frontend/admin.html";
+                window.location = "/admin.html";
             } else {
                 // Redirige a otros usuarios a index.html o la página principal
-                window.location = "/frontend/index.html";
+                window.location = "/index.html";
             }
         } catch (error) {
             console.error("Error al iniciar sesión:", error);
