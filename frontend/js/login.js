@@ -1,32 +1,41 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // login form and fetch login backedn endpoint
     const loginForm = document.getElementById("login-form");
+
     loginForm.addEventListener("submit", async function (event) {
         event.preventDefault();
+        
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
-        const response = await fetch("http://localhost:8080/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                email: email,
-                contraseña: password
-            }),
-        });
-        const data = await response.json();
-        if (response.ok) {
-            // save user in localStorage
+
+        try {
+            const response = await fetch("http://localhost:8080/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email: email,
+                    contraseña: password
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error("Error en la solicitud");
+            }
+
+            const data = await response.json();
             localStorage.setItem("user", JSON.stringify(data));
-            if(data.usuario.id_rol == 1){
+
+            if (data.usuario.id_rol === 1) {
+                // Redirige al usuario administrador a admin.html
                 window.location = "/frontend/admin.html";
-            }else{
+            } else {
+                // Redirige a otros usuarios a index.html o la página principal
                 window.location = "/frontend/index.html";
             }
-        } else {
-            alert("Error, credenciales");
+        } catch (error) {
+            console.error("Error al iniciar sesión:", error);
+            alert("Error al iniciar sesión. Verifica tus credenciales.");
         }
     });
-})
-
+});
