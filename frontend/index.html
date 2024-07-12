@@ -12,7 +12,7 @@
   <script src="https://kit.fontawesome.com/c9b87a4bee.js" crossorigin="anonymous"></script>
   <script src="./js/script.js" defer></script>
   <script src="./js/formulario.js" defer></script>
-
+  <script src="./js/logout.js" defer></script>
   <title>E-commerce</title>
 </head>
 
@@ -26,7 +26,9 @@
 
     <nav class="navbar">
       <div class="logo">
-        <img src="img/logo.png" alt="Logo">
+        <a href="index.html">
+          <img src="img/logo.png" alt="Logo">
+        </a>
       </div>
       <div class="nav-links" id="navLinks">
         <a href="#slider" class="nav-link">INICIO</a>
@@ -38,6 +40,17 @@
       <div class="menu-icon" onclick="toggleMenu()">
         <i class="fa-solid fa-bars"></i>
       </div>
+
+      <div class="button">
+        <!-- Botón "Mi cuenta" con menú desplegable -->
+        <div class="btn-navbar">
+            <i class="fas fa-user"></i> <span id="btn-account-text"></span>
+            <div id="btn-account" class="dropdown-content">
+                
+            </div>
+        </div>
+      </div>  
+
     </nav>
   </header>
 
@@ -92,9 +105,15 @@
       <div class="content-modal">
         <h2 id="titulo-modal"></h2>
         <p id="descripcion-modal"></p>
-        <div id="btn-cerrar">
-          Cerrar
-        </div>
+        <div class="container-modal-button">
+          <div id="btn-comprar">
+            Comprar
+          </div>
+
+          <div id="btn-cerrar">
+            Cerrar
+          </div>
+        </div> 
       </div>
       <!--Fin de Ventana Modal-->
     </div>
