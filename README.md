@@ -5,7 +5,7 @@
 
 INTEGRANTES:
 
-* Maria Aredes | earedes80@gmail.com
+* Maria Emilse Aredes | earedes80@gmail.com
 * Nicolas Cartellone | nicolas.cartellone@gmail.com
 * Gian Franco Montero | gianmonteroavalos@gmail.com
 
@@ -43,3 +43,6 @@ Para que node pueda leer el archivo .env se debe tener la version 20 o superior.
 Este script por detras corre el siguete comando: nodemon --env-file .env src src/index.js
 
 ¡Listo! El backend estará funcionando en el puerto especificado y conectado a la base de datos configurada.
+=======
+* Marcos Pablo Martin | martinmarcospablo@gmail.com
+
