@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         roles.forEach(role => {
             // Crear una nueva fila
             const row = document.createElement('tr');
-
+            
             // Añadir celdas con los datos del rol
             row.innerHTML = `
                 <td class="text-center">${role.id}</td>
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
                         </span>
                     </a>
-                    <a href="#" class="table-link danger">
+                    <a href="#" class="table-link danger btn-eliminar" data-role-id="${role.id}">
                         <span class="fa-stack">
                             <i class="fa fa-square fa-stack-2x"></i>
                             <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
@@ -55,9 +55,95 @@ document.addEventListener("DOMContentLoaded", function () {
                 </td>
             `;
 
+            const btnEliminar = row.querySelector(".btn-eliminar");
+            btnEliminar.addEventListener("click", () => {
+                const roleId = btnEliminar.getAttribute("data-role-id");
+                eliminarRol(roleId);
+            });
+
+            const btnActualizar = row.querySelector(".fa-pencil");
+            btnActualizar.addEventListener("click", () => {
+                mostrarModalActualizarRol(role)
+            });
+
             // Agregar la fila al cuerpo de la tabla
             table.querySelector('tbody').appendChild(row);
         });
+    };
+
+    // Función para crear un rol nuevo
+    const crearRol = async () => {
+        const nombreRol = document.getElementById("nombre-rol").value;
+
+        const nuevoRol = {
+            nombre: nombreRol
+        };
+
+        try {
+            const response = await fetch("http://localhost:8080/roles/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(nuevoRol),
+            });
+
+            if (!response.ok) {
+                throw new Error("Error al crear el rol");
+            }
+
+            // Actualizar la tabla de roles
+            getRoles();
+            roleForm.reset();
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    };
+
+    // Función para eliminar un rol
+    const eliminarRol = async (roleId) => {
+        try {
+            const response = await fetch(`http://localhost:8080/roles/${roleId}`, {
+                method: "DELETE",
+            });
+
+            if (!response.ok) {
+                throw new Error("Error al eliminar rol");
+            }
+
+            // Actualizar la tabla de roles después de eliminar
+            getRoles();
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    };
+
+    const actualizarRol = async (roleId) => {
+        const form = document.getElementById("form-crear-rol")
+        const formData = new FormData(form);
+
+        const rolActualizado = {
+            nombre: formData.get("nombre-rol")
+        };
+
+        try {
+            const response = await fetch(`http://localhost:8080/roles/${roleId}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(rolActualizado),
+            })
+
+            if (!response.ok) {
+                throw new Error("Error al actualizar el rol");
+            }
+
+            // Actualizar la tabla de roles después de actualizar
+            getRoles();
+        } catch (error) {
+            console.error("Error:", error);
+        }
     }
 
     // Función para crear el botón y modal de Roles
@@ -80,8 +166,10 @@ document.addEventListener("DOMContentLoaded", function () {
                             <!-- Aquí va el formulario para crear rol -->
                             <form id="form-crear-rol">
                                 <!-- Campos del formulario -->
-                                <input type="text" id="nombre-rol" name="nombre-rol" placeholder="Nombre del rol" required>
-                                <!-- Otros campos según necesidad -->
+                                <div class="mb-3">
+                                    <label for="nombre-rol" class="form-label">Nombre del Rol</label>
+                                    <input type="text" class="form-control" id="nombre-rol" name="nombre-rol" placeholder="Nombre del rol" required>
+                                </div>
                             </form>
                         </div>
                         <div class="modal-footer">
@@ -92,11 +180,35 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             </div>
         `;
+
+        const btnSaveRol = document.getElementById("btn-guardar-rol");
+        btnSaveRol.addEventListener("click", crearRol);
     };
 
+    const mostrarModalActualizarRol = (rol) => {
+        const modalRol = new bootstrap.Modal(document.getElementById("modal-rol"), {
+            backdrop: "static",
+            keyboard: false,
+        });
+        modalRol.show();
+
+        const form = document.getElementById("form-crear-rol");
+        form.reset()
+
+        form.querySelector("#nombre-rol").value = rol.nombre;
+
+        const btnSaveRol = document.getElementById("btn-guardar-rol");
+        btnSaveRol.innerHTML = "Actualizar"
+        btnSaveRol.removeEventListener("click", crearRol)
+        btnSaveRol.addEventListener("click", () => {
+            actualizarRol(rol.id)
+            modalRol.hide();
+        })
+    }
+
+    // Actualizar la tabla de roles al hacer clic en el botón de roles
     btnRoles.addEventListener("click", () => {
         getRoles();
         createBtnOpenModalRoles(); // Crear el botón y modal de Roles
     });
-
 });

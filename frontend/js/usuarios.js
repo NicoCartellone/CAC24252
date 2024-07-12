@@ -160,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Actualizar la tabla de usuarios después de actualizar
         getUsers();
+        form.reset();
     } catch (error) {
         console.error("Error:", error);
         // Manejar el error según tu necesidad (por ejemplo, mostrar un mensaje al usuario)
@@ -180,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5">Crear Usuario</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button id="btn-header-close" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <!-- Aquí va el formulario para crear usuario -->
@@ -211,13 +212,32 @@ document.addEventListener("DOMContentLoaded", function () {
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button id="btn-close-modal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                             <button type="button" class="btn btn-success" id="btn-guardar-usuario">Guardar</button>
                         </div>
                     </div>
                 </div>
             </div>
         `;
+
+    const btnCloseModal = document.getElementById("btn-close-modal");
+    btnCloseModal.addEventListener("click", () => {
+      const form = document.getElementById("form-crear-usuario");
+      form.reset()
+      const btnGuardar = document.getElementById("btn-guardar-usuario");
+      btnGuardar.innerHTML = "Guardar";
+      btnGuardar.removeEventListener("click", actualizarUsuario);
+    })
+
+    const btnHeaderClose = document.getElementById("btn-header-close");
+    btnHeaderClose.addEventListener("click", () => {
+      const form = document.getElementById("form-crear-usuario");
+      form.reset()
+      const btnGuardar = document.getElementById("btn-guardar-usuario");
+      btnGuardar.innerHTML = "Guardar";
+      btnGuardar.removeEventListener("click", actualizarUsuario);
+    })
+
     loadRolesOptions();
 
     const btnSaveUsuario = document.getElementById("btn-guardar-usuario");
@@ -225,7 +245,11 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const mostrarModalActualizar = async (user) => {
-    const modalUsuario = new bootstrap.Modal(document.getElementById("modal-usuario"));
+    const modalUsuario = new bootstrap.Modal(document.getElementById("modal-usuario"), 
+    {
+      backdrop: 'static',
+      keyboard: false
+    });
     modalUsuario.show();
 
     // Rellenar el formulario con los datos del usuario a actualizar
@@ -243,6 +267,7 @@ document.addEventListener("DOMContentLoaded", function () {
     btnGuardar.removeEventListener("click", crearUsuario); // Remover el EventListener anterior
     btnGuardar.addEventListener("click", () => {
         actualizarUsuario(user.id);
+        modalUsuario.hide();
     });
 };
 
