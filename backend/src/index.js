@@ -14,18 +14,7 @@ app.use(cors());
 app.use(express.json())
 
 app.get('/', (req, res) => {
-    // mostrar un simple html con un mensaje de bienvenida y las rutas disponibles a modo de documentacion para el usuario
-    res.send(`
-        <h1>Bienvenido a la API de CAC Ecommerce</h1>
-        <h2>Rutas disponibles:</h2>
-        <ul>
-            <li><a href="/roles">/roles</a></li>
-            <li><a href="/usuarios">/usuarios</a></li>
-            <li><a href="/productos">/productos</a></li>
-            <li><a href="/categorias">/categorias</a></li>
-            <li><a href="/login">/login</a></li>
-        </ul>
-    `)
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 app.use('/roles', roleRouter)
 app.use('/usuarios', userRouter)
