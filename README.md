@@ -5,9 +5,10 @@
 
 INTEGRANTES:
 
-* Maria Aredes | earedes80@gmail.com
+* Maria Emilse Aredes | earedes80@gmail.com
 * Nicolas Cartellone | nicolas.cartellone@gmail.com
 * Gian Franco Montero | gianmonteroavalos@gmail.com
+* Marcos Pablo Martin | martinmarcospablo@gmail.com
 
 # Backend
 
@@ -57,3 +58,4 @@ Para iniciar sesión en el frontend como administrador, utiliza las siguientes c
 
 - **Email**: admin@admin.com
 - **Contraseña**: admin123
+
