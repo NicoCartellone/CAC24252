@@ -11,18 +11,18 @@ const getAllCategories = (req, res) => {
 }
 
 const getCategoryById = (req, res) => {
-
     const { id } = req.params;
-    const sql = 'SELECT * FROM categoria WHERE id = ?';
-    db.query(sql, [id], (err, result) => {
+    const getCategoryById = 'SELECT * FROM Categoria WHERE id = ?'
+
+    db.query(getCategoryById, [id], (err, result) => {
         if (err) {
             return res.status(500).json({ error: 'Error al obtener la categoria' });
         }
         if (result.length === 0) {
             return res.status(404).json({ message: 'Categoria no encontrada' });
         }
-        res.json(result[0]);
-    });
+        res.status(200).json(result);
+    })
 }
 
 const createCategory = (req, res) => {
