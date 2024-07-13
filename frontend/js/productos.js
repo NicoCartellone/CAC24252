@@ -214,6 +214,24 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         `;
 
+        try {
+            const response = await fetch(`${baseURL}categorias`);
+            if (!response.ok) {
+                throw new Error("Error al cargar las categorías");
+            }
+            const categorias = await response.json();
+            const selectCategoria = document.getElementById("categoria-producto");
+            selectCategoria.innerHTML = '';
+            categorias.forEach((categoria) => {
+                const option = document.createElement("option");
+                option.value = categoria.id;
+                option.textContent = categoria.nombre;
+                selectCategoria.appendChild(option);
+            })
+        } catch (error) {
+            console.error("Error:", error);
+        }
+
         // Cargar opciones de categorías en el formulario de crear producto
 
         const btnSaveProducto = document.getElementById("btn-guardar-producto");
@@ -245,28 +263,6 @@ document.addEventListener("DOMContentLoaded", function () {
             modalProducto.hide();
         });
     }
-
-    // Función para cargar las opciones de categorías en el formulario de crear producto
-    const loadCategoriasOptions = async () => {
-        const selectCategoria = document.getElementById("categoria-producto");
-        selectCategoria.innerHTML = ""; // Limpiar opciones actuales
-
-        try {
-            // Obtener categorías desde el servidor
-            const response = await fetch(`${baseURL}categorias`);
-            const categorias = await response.json();
-
-            // Iterar sobre las categorías y agregarlas como opciones al select
-            categorias.forEach((categoria) => {
-                const option = document.createElement("option");
-                option.value = categoria.id;
-                option.textContent = categoria.nombre;
-                selectCategoria.appendChild(option);
-            });
-        } catch (error) {
-            console.error("Error:", error);
-        }
-    };
 
     // Evento para mostrar la tabla de productos al hacer clic en Productos
     btnProductos.addEventListener("click", () => {
