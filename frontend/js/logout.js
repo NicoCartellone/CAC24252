@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (btnLogout) {
         btnLogout.addEventListener("click", function () {
             localStorage.removeItem("user");
-            window.location = "/frontend/index.html";
+            window.location = "/index.html";
         });
     }
 });
