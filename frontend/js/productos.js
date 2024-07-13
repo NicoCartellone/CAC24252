@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
             row.innerHTML = `
                     <td class="text-center">${product.nombre}</td>
                     <td class="text-center">${product.descripcion}</td>
-                    <td class="text-center">${category.nombre}</td>
+                    <td class="text-center">${category[0].nombre}</td>
                     <td class="text-center">${product.precio}</td>
                     <td class="text-center">
                         <a href="#" class="table-link">
@@ -215,7 +215,12 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
 
         try {
-            const response = await fetch(`${baseURL}categorias`);
+            const response = await fetch(`${baseURL}categorias`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            });
             if (!response.ok) {
                 throw new Error("Error al cargar las categorías");
             }
