@@ -139,36 +139,36 @@ document.addEventListener("DOMContentLoaded", function () {
     const formData = new FormData(form);
 
     const usuarioActualizado = {
-        nombre: formData.get("nombre"),
-        apellido: formData.get("apellido"),
-        email: formData.get("email"),
-        id_rol: parseInt(formData.get("rol-usuario")) // Convertir a número entero
+      nombre: formData.get("nombre"),
+      apellido: formData.get("apellido"),
+      email: formData.get("email"),
+      id_rol: parseInt(formData.get("rol-usuario")) // Convertir a número entero
     };
 
     try {
-        const response = await fetch(`${baseURL}usuarios/${userId}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(usuarioActualizado)
-        });
+      const response = await fetch(`${baseURL}usuarios/${userId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(usuarioActualizado)
+      });
 
-        if (!response.ok) {
-            throw new Error("Error al actualizar usuario");
-        }
+      if (!response.ok) {
+        throw new Error("Error al actualizar usuario");
+      }
 
-        // Actualizar la tabla de usuarios después de actualizar
-        getUsers();
-        form.reset();
+      // Actualizar la tabla de usuarios después de actualizar
+      getUsers();
+      form.reset();
     } catch (error) {
-        console.error("Error:", error);
-        // Manejar el error según tu necesidad (por ejemplo, mostrar un mensaje al usuario)
+      console.error("Error:", error);
+      // Manejar el error según tu necesidad (por ejemplo, mostrar un mensaje al usuario)
     }
-};
+  };
 
   // Función para crear el botón y modal de Usuarios
-  const createBtnOpenModalUsuarios = async() => {
+  const createBtnOpenModalUsuarios = async () => {
     const btnOpenModal = document.getElementById("btn-open-modal");
     btnOpenModal.innerHTML = `
             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-usuario">
@@ -240,37 +240,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Obtener roles y actualizar el select
     try {
-      const response = await fetch(`${baseURL}roles`);
+      const response = await fetch(`${baseURL}roles`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
       if (!response.ok) {
-          throw new Error("Error al obtener los roles");
+        throw new Error("Error al obtener los roles");
       }
       const roles = await response.json();
       const selectRoles = document.getElementById("rol-usuario");
       selectRoles.innerHTML = ''; // Limpiar opciones anteriores
       roles.forEach(role => {
-          const option = document.createElement('option');
-          option.value = role.id; // Asegúrate de tener el ID del rol
-          option.textContent = role.nombre;
-          selectRoles.appendChild(option);
+        const option = document.createElement('option');
+        option.value = role.id; // Asegúrate de tener el ID del rol
+        option.textContent = role.nombre;
+        selectRoles.appendChild(option);
       });
-  } catch (error) {
+    } catch (error) {
       console.error("Error:", error);
       // Manejar el error según tu necesidad (por ejemplo, mostrar un mensaje al usuario)
-  }
+    }
 
 
     const btnSaveUsuario = document.getElementById("btn-guardar-usuario");
     btnSaveUsuario.addEventListener("click", crearUsuario);
 
-    
+
   };
 
   const mostrarModalActualizar = async (user) => {
-    const modalUsuario = new bootstrap.Modal(document.getElementById("modal-usuario"), 
-    {
-      backdrop: 'static',
-      keyboard: false
-    });
+    const modalUsuario = new bootstrap.Modal(document.getElementById("modal-usuario"),
+      {
+        backdrop: 'static',
+        keyboard: false
+      });
     modalUsuario.show();
 
     // Rellenar el formulario con los datos del usuario a actualizar
@@ -287,10 +292,10 @@ document.addEventListener("DOMContentLoaded", function () {
     btnGuardar.innerHTML = "Actualizar";
     btnGuardar.removeEventListener("click", crearUsuario); // Remover el EventListener anterior
     btnGuardar.addEventListener("click", () => {
-        actualizarUsuario(user.id);
-        modalUsuario.hide();
+      actualizarUsuario(user.id);
+      modalUsuario.hide();
     });
-};
+  };
 
   // Cargar la tabla de usuarios al cargar la página
   getUsers();
