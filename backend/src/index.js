@@ -11,7 +11,7 @@ const app = express()
 const PORT = process.env.PORT || 3000
 
 const corsOptions = {
-    origin: 'https://cac-ecommerce.netlify.app',
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type'],
 };
